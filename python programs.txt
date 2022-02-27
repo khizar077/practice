@@ -1,0 +1,19 @@
+def add_sub(x,y):
+  c=x+y
+  d=x-y
+  return c,d
+print(add_sub(10,5))
+
+
+Output:
+(15, 5)
+The return statement is used to exit a function and go back to the place from where it was
+called. This statement can contain expression which gets evaluated and the value is returned.
+If there is no expression in the statement or the return statement itself is not present inside a
+function, then the function will return the None object.
+
+def hello_f():
+return "hellocollege"
+print(hello_f().upper())
+Output:
+HELLOCOLLEGE
