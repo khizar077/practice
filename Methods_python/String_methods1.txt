@@ -1,0 +1,1011 @@
+String Methods:
+=================
+
+Python String lower() Method
+
+Python String lower() method converts all uppercase characters in a string into lowercase characters and returns it.
+
+Syntax: 
+
+string.lower()
+
+Parameters: 
+
+The lower() method doesn’t take any parameters. 
+
+Returns: 
+
+Returns a lowercase string of the given string
+
+
+String with only alphabetic characters 
+
+# Python3 program to show the
+# working of lower() function
+text = 'GeEks FOR geeKS'
+
+print("Original String:")
+print(text)
+
+# lower() function to convert
+# string to lower_case
+print("\nConverted String:")
+print(text.lower())
+
+
+Output: 
+
+Original String:
+GeEks FOR geeKS
+
+Converted string:
+geeks for geeks
+
+
+
+String with Alphanumeric Characters
+
+# Python3 program to show the
+# working of lower() function
+text = 'G3Ek5 F0R gE3K5'
+
+print("Original String:")
+print(text)
+
+# lower() function to convert
+# string to lower_case
+print("\nConverted String:")
+print(text.lower())
+
+
+
+Output: 
+
+Original String:
+G3Ek5 F0R gE3K5
+
+Converted String:
+g3ek5 f0r ge3k5
+
+
+# Python3 program to show the
+# working of lower() function
+text1 = 'GEEKS For GEEKS'
+
+text2 = 'gEeKS fOR GeeKs'
+
+# Comparison of strings using
+# lower() method
+if(text1.lower() == text2.lower()):
+	print("Strings are same")
+else:
+	print("Strings are not same")
+
+
+Output: 
+
+Strings are same
+
+
+
+Python String lstrip() method
+
+Python String lstrip() method returns a copy of the string with leading characters removed (based on the string argument passed). 
+If no argument is passed, it removes leading spaces.
+
+Syntax: 
+
+string.lstrip(characters)
+
+Parameters: 
+
+characters [optional]: A set of characters to remove as leading characters.
+Returns: 
+
+Returns a copy of the string with leading characters stripped.
+
+
+# Python3 program to demonstrate the use of
+# lstrip() method using default parameter
+	
+# string which is to be stripped
+string = " geeksforgeeks"
+	
+# Removes spaces from left.
+print(string.lstrip())
+
+
+Output:
+
+geeksforgeeks
+
+
+# Python3 program to demonstrate the use of
+# lstrip() method using optional parameters
+	
+# string which is to be stripped
+string = "++++x...y!!z* geeksforgeeks"
+
+# Removes given set of characters from left.
+print(string.lstrip("+.!*xyz"))
+
+
+Output: 
+
+geeksforgeeks
+
+
+
+# string which is to be stripped
+string = "geeks for geeks"
+
+# Argument doesn't contain leading 'g'
+# So, no characters are removed
+print(string.lstrip('ge'))
+
+
+Output: 
+
+ks for geeks
+
+
+
+maketrans() and translate() functions in Python
+
+
+In the world of programming, seldom there is a need to replace all the words/characters 
+at once in the whole file python offers this functionality using functions translate() and its helper functions maketrans(). 
+Both functions are discussed in this article.
+
+maketrans()
+maketrans() function is used to construct the transition table i.e specify the list of characters that 
+need to be replaced in the whole string or the characters that need to be deleted from the string
+
+Syntax : maketrans(str1, str2, str3)
+
+Parameters :
+str1 : Specifies the list of characters that need to be replaced.
+str2 : Specifies the list of characters with which the characters need to be replaced.
+str3 : Specifies the list of characters that needs to be deleted.
+
+Returns : Returns the translation table which specifies the conversions that can be used by translate()
+
+
+Translate using maketrans()
+To translate the characters in the string translate() is used to make the translations. 
+This function uses the translation mapping specified using the maketrans().
+
+
+Syntax : translate(table, delstr)
+
+Parameters :
+table : Translate mapping specified to perform translations.
+delstr : The delete string can be specified as optional argument is not mentioned in table.
+
+Returns : Returns the argument string after performing the translations using the translation table.
+
+
+# Python3 code to demonstrate
+# translations using
+# maketrans() and translate()
+
+# specify to translate chars
+str1 = "wy"
+
+# specify to replace with
+str2 = "gf"
+
+# delete chars
+str3 = "u"
+
+# target string
+trg = "weeksyourweeks"
+
+# using maketrans() to
+# construct translate
+# table
+table = trg.maketrans(str1, str2, str3)
+
+# Printing original string
+print ("The string before translating is : ", end ="")
+print (trg)
+
+# using translate() to make translations.
+print ("The string after translating is : ", end ="")
+print (trg.translate(table))
+
+
+Output :
+
+The string before translating is : weeksyourweeks
+The string after translating is : geeksforgeeks
+
+
+
+Translate without maketrans()
+Translation can also be achieved by specifying the translation dictionary and passing as an object which acts as a mapping. 
+In this case, there is no need for maketrans() to perform translations.
+
+
+# Python3 code to demonstrate
+# translations without
+# maketrans()
+
+# specifying the mapping
+# using ASCII
+table = { 119 : 103, 121 : 102, 117 : None }
+
+# target string
+trg = "weeksyourweeks"
+
+# Printing original string
+print ("The string before translating is : ", end ="")
+print (trg)
+
+# using translate() to make translations.
+print ("The string after translating is : ", end ="")
+print (trg.translate(table))
+
+
+Output :
+
+The string before translating is : weeksyourweeks
+The string after translating is : geeksforgeeks
+
+
+
+Python String partition() Method
+
+
+Python String partition() method splits the string at the first occurrence of the separator and 
+returns a tuple containing the part before the separator, separator, and the part after the separator. 
+Here separator is a string that is given as the argument. 
+
+Syntax: 
+
+string.partition(separator)
+
+Parameters: 
+
+The partition() method takes a separator(a string) as the argument that separates the string at its first occurrence.
+
+Returns: 
+
+Returns a tuple that contains the part before the separator, 
+separator parameter, and the part after the separator if the separator parameter is found in the string. 
+Returns a tuple that contains the string itself and two empty strings if the separator parameter is not found. 
+
+
+string = "pawan is a good"
+
+# 'is' separator is found
+print(string.partition('is '))
+
+# 'not' separator is not found
+print(string.partition('bad '))
+
+string = "pawan is a good, isn't it"
+
+# splits at first occurrence of 'is'
+print(string.partition('is'))
+
+
+Output: 
+
+('pawan ', 'is ', 'a good')
+('pawan is a good', '', '')
+('pawan ', 'is', " a good, isn't it")
+
+
+
+
+string = "geeks is a good"
+
+# 'is' separator is found
+print(string.partition('is '))
+
+# 'not' separator is not found
+print(string.partition('bad '))
+
+string = "geeks is a good, isn't it"
+
+# splits at first occurrence of 'is'
+print(string.partition('is'))
+
+
+Output: 
+
+('geeks ', 'is ', 'a good')
+('geeks is a good', '', '')
+('geeks ', 'is', " a good, isn't it")
+
+
+
+Python String rfind() Method
+
+Python String rfind() method returns the highest index of the substring if found in the given string. 
+If not found then it returns -1.
+
+Syntax: 
+
+str.rfind(sub, start, end)
+
+Parameters: 
+
+sub: It’s the substring that needs to be searched in the given string. 
+start: Starting position where the sub needs to be checked within the string. 
+end: Ending position where suffix needs to be checked within the string. 
+Note: If start and end indexes are not provided then, 
+by default it takes 0 and length-1 as starting and ending indexes where ending indexes are not included in our search.
+
+Return: 
+
+Returns the highest index of the substring if it is found in the given string; if not found, then it returns -1.
+
+Exception: 
+
+ValueError: This error is raised in the case when the argument string is not found in the target string.
+
+
+# Python program to demonstrate working of rfind()
+# in whole string
+word = 'geeks for geeks'
+
+# Returns highest index of the substring
+result = word.rfind('geeks')
+print ("Substring 'geeks' found at index :", result )
+
+result = word.rfind('for')
+print ("Substring 'for' found at index :", result )
+
+word = 'CatBatSatMatGate'
+
+# Returns highest index of the substring
+result = word.rfind('ate')
+print("Substring 'ate' found at index :", result)
+
+
+
+Output: 
+
+Substring 'geeks' found at index : 10
+Substring 'for' found at index : 6
+Substring 'ate' found at index : 13
+
+
+
+# Python program to demonstrate working of rfind()
+# in a sub-string
+word = 'geeks for geeks'
+
+# Substring is searched in 'eeks for geeks'
+print(word.rfind('ge', 2))
+
+# Substring is searched in 'eeks for geeks'
+print(word.rfind('geeks', 2))
+
+# Substring is searched in 'eeks for geeks'
+print(word.rfind('geeks ', 2))
+
+# Substring is searched in 's for g'
+print(word.rfind('for ', 4, 11))
+
+
+Output: 
+
+10
+10
+-1
+6
+
+
+# Python program to demonstrate working of rfind()
+# to search a string
+word = 'CatBatSatMatGate'
+
+if (word.rfind('Ate') != -1):
+	print ("Contains given substring ")
+else:
+	print ("Doesn't contains given substring")
+
+
+Output: 
+
+Doesn't contains given substring
+
+
+
+
+Python String rindex() Method
+
+Python String rindex() method returns the highest index of the substring inside the string if the substring is found. 
+Otherwise, it raises an exception.
+
+Syntax: 
+
+str.rindex(sub, start, end)
+
+Parameters: 
+
+sub : It’s the substring which needs to be searched in the given string.
+start : Starting position where sub is needs to be checked within the string.
+end : Ending position where suffix is needs to be checked within the string.
+Note: If start and end indexes are not provided then by default it takes 0 and length-1 as 
+starting and ending indexes where ending indexes is not included in our search.
+
+Return:
+
+Returns the highest index of the substring inside the string if substring is found. 
+Otherwise it raises an exception. 
+
+Errors and Exceptions: 
+
+ValueError: This error is raised when the argument string is not found in the target string.
+
+
+# Python code to demonstrate working of rindex()
+text = 'geeks for geeks'
+
+result = text.rindex('geeks')
+print("Substring 'geeks':", result)
+
+
+Output: 
+
+Substring 'geeks': 10
+
+
+
+# Python code to demonstrate working of rindex()
+# with range provided
+quote = 'geeks for geeks'
+
+# Substring is searched in ' geeks for geeks'
+print(quote.rindex('ge', 2))
+
+# Substring is searched in 0 to 10 range
+print(quote.rindex('geeks', 0, 10))
+
+
+Output: 
+
+10
+0
+
+
+
+Python String | rpartition()
+
+partition() function in Python split the given string into three parts. 
+rpartition() start looking for separator from right side, 
+till the separator is found and return a tuple which contains part of the string before separator, 
+argument of the string and the part after the separator.
+
+
+Syntax : 
+
+string.rpartition(separator)
+Parameters :  
+
+separator -  separates the string at the first occurrence of it.
+Return Value :  
+
+It returns the part the string before the separator, separator parameter itself, 
+and the part after the separator if the separator parameter is found in the string.
+It returns two empty strings, followed by the given string if the separator is not found in the string.
+Exception :  
+
+If separator argument is not supplied, it will throw TypeError.
+
+
+# Python3 code explaining rpartition()
+
+# String need to split
+string1 = "Geeks@for@Geeks@is@for@geeks"
+
+string2 = "Ram is not eating but Mohan is eating"
+
+# Here '@' is a separator
+print(string1.rpartition('@'))
+
+# Here 'is' is separator
+print(string2.rpartition('is'))
+
+
+Output : 
+
+('Geeks@for@Geeks@is@for', '@', 'geeks')
+('Ram is not eating but Mohan ', 'is', ' eating')
+
+
+
+
+# Python3 code explaining rpartition()
+
+# String need to split
+string = "Sita is going to school"
+
+# Here 'not' is a separator which is not
+# present in the given string
+print(string.rpartition('not'))
+
+
+Output : 
+
+('', '', 'Sita is going to school')
+
+
+
+Python String rsplit() Method
+
+Python String rsplit() method returns a list of strings after 
+breaking the given string from the right side by the specified separator.
+
+Syntax: 
+
+str.rsplit(separator, maxsplit)
+
+Parameters:  
+
+separator: The is a delimiter. The string splits at this specified separator starting from the right side. 
+It is not provided then any white space is a separator.
+maxsplit: It is a number, which tells us to split the string into a maximum of provided number of times. 
+If it is not provided then there is no limit.  
+Return:
+
+Returns a list of strings after breaking the given string from the right side by the specified separator.
+
+Error:  
+
+We will not get any error even if we are not passing any argument.
+
+
+# Python code to split a string
+# using rsplit.
+
+# Splits at space
+word = 'geeks for geeks'
+print(word.rsplit())
+
+# Splits at 'g'. Note that we have
+# provided maximum limit as 1. So
+# from right, one splitting happens
+# and we get "eeks" and "geeks, for, "
+word = 'geeks, for, geeks'
+print(word.rsplit('g', 1))
+
+# Splitting at '@' with maximum splitting
+# as 1
+word = 'geeks@for@geeks'
+print(word.rsplit('@', 1))
+
+
+Output: 
+
+['geeks', 'for', 'geeks']
+['geeks, for, ', 'eeks']
+['geeks@for', 'geeks']
+
+
+
+# Python code to split a string
+# using rsplit.
+
+# Splits at space
+word = 'geeks, for, geeks, pawan'
+
+# maxsplit: 0
+print(word.rsplit(', ', 0))
+
+# maxsplit: 4
+print(word.rsplit(', ', 4))
+
+word = 'geeks@for@geeks@for@geeks'
+
+# maxsplit: 1
+print(word.rsplit('@', 1))
+
+# maxsplit: 2
+print(word.rsplit('@', 2))
+
+
+Output: 
+
+['geeks, for, geeks, pawan']
+['geeks', 'for', 'geeks', 'pawan']
+['geeks@for@geeks@for', 'geeks']
+['geeks@for@geeks', 'for', 'geeks']
+
+
+
+# Python code to split a string
+# using rsplit.
+
+# Splits at space
+word = 'geeks for geeks'
+
+# Since separator is 'None',
+# so, will be splitted at space
+print(word.rsplit(None, 1))
+
+print(word.rsplit(None, 2))
+
+# Also observe these
+print('@@@@@geeks@for@geeks'.rsplit('@'))
+print('@@@@@geeks@for@geeks'.rsplit('@', 1))
+print('@@@@@geeks@for@geeks'.rsplit('@', 3))
+print('@@@@@geeks@for@geeks'.rsplit('@', 5))
+
+
+Output: 
+
+['geeks for', 'geeks']
+['geeks', 'for', 'geeks']
+['', '', '', '', '', 'geeks', 'for', 'geeks']
+['@@@@@geeks@for', 'geeks']
+['@@@@', 'geeks', 'for', 'geeks']
+['@@', '', '', 'geeks', 'for', 'geeks']
+
+
+
+Python String rstrip() Method
+
+Python String rstrip() method returns a copy of the string with trailing characters removed (based on the string argument passed). 
+If no argument is passed, it removes trailing spaces.
+
+Syntax: 
+
+string.rstrip([chars])
+
+Parameters:
+
+chars (optional) – a string specifying the set of characters to be removed.
+
+Returns:
+
+Returns a copy of the string with trailing characters stripped
+
+
+
+# Python3 program to demonstrate the use of
+# rstrip() method using optional parameters
+
+# string which is to be stripped
+string = "geekssss"
+
+# Removes given set of characters from
+# right.
+print(string.rstrip('s'))
+
+
+Output: 
+
+geek
+
+
+# Python3 program to demonstrate the use of
+# rstrip() method using optional parameters
+
+# string which is to be stripped
+string = " for "
+
+# Leading whitespaces are removed
+print("Geeks" + string.rstrip() + " Geeks ")
+
+
+Output: 
+
+Geeks   for Geeks
+
+
+# string which is to be stripped
+string = "geeks for geeks"
+
+# Argument doesn't contain trailing 's'
+# So, no characters are removed
+print(string.rstrip('ek'))
+
+
+Output: 
+
+geeks for geeks
+
+
+
+
+Python String splitlines() Method
+
+Python String splitlines() method is used to split the lines at line boundaries. 
+The function returns a list of lines in the string, including the line break(optional).
+
+Syntax: 
+
+string.splitlines([keepends])
+
+Parameters:
+
+keepends (optional): When set to True line breaks are included in the resulting list. 
+This can be a number, specifying the position of line break or, can be any Unicode characters, 
+like “\n”, “\r”, “\r\n”, etc as boundaries for strings.
+
+Return Value: 
+
+Returns a list of the lines in the string, breaking at line boundaries.
+
+Representation
+
+Description
+
+\n	Line Feed
+\r	Carriage Return
+\r\n	Carriage Return + Line Feed
+\x1c	File Separator
+\x1d	Group Separator
+\x1e	Record Separator
+\x85	Next Line (C1 Control Code)
+\v or \x0b	Line Tabulation
+\f or \x0c	Form Feed
+\u2028	Line Separator
+\u2029	Paragraph Separator
+
+
+# Python code to illustrate splitlines()
+string = "Welcome everyone to\rthe world of Geeks\nGeeksforGeeks"
+
+# No parameters has been passed
+print (string.splitlines( ))
+
+# A specified number is passed
+print (string.splitlines(0))
+
+# True has been passed
+print (string.splitlines(True))
+
+
+Output: 
+
+['Welcome everyone to', 'the world of Geeks', 'GeeksforGeeks']
+['Welcome everyone to', 'the world of Geeks', 'GeeksforGeeks']
+['Welcome everyone to\r', 'the world of Geeks\n', 'GeeksforGeeks']
+
+
+
+
+# Python code to illustrate splitlines()
+string = "Cat\nBat\nSat\nMat\nXat\nEat"
+
+# No parameters has been passed
+print (string.splitlines( ))
+
+# splitlines() in one line
+print('India\nJapan\nUSA\nUK\nCanada\n'.splitlines())
+
+
+Output: 
+
+['Cat', 'Bat', 'Sat', 'Mat', 'Xat', 'Eat']
+['India', 'Japan', 'USA', 'UK', 'Canada']
+
+
+
+# Python code to get length of each words
+def Cal_len(string):
+	
+	# Using splitlines() divide into a list
+	li = string.splitlines()
+	print (li)
+	
+	# Calculate length of each word
+	l = [len(element) for element in li]
+	return l
+
+# Driver Code	
+string = "Welcome\rto\rGeeksforGeeks"
+print(Cal_len(string))
+
+
+Output: 
+
+['Welcome', 'to', 'GeeksforGeeks']
+[7, 2, 13]
+
+
+
+Python | String startswith()
+
+The startswith() method returns True if a string starts with the given prefix otherwise returns False.
+
+Syntax :
+
+str.startswith(prefix, start, end)
+Parameters :
+
+prefix : prefix ix nothing but a string which needs to be checked.
+start : Starting position where prefix is needs to be checked within the string.
+end : Ending position where prefix is needs to be checked within the string.
+NOTE : If start and end index is not provided then by default it takes 0 and length-1 
+as starting and ending indexes where ending indes is not included in our search.
+
+Returns :
+
+It returns True if strings starts with the given
+prefix otherwise returns False.
+Examples:
+
+Input : text = "geeks for geeks."
+        result = text.startswith('for geeks')
+Output : False
+
+Input : text = "geeks for geeks."
+        result = text.startswith('geeks', 0)
+Output : True
+Error : ValueError : This error is raised in the case when the argument string is not found in the target string.
+
+
+# Python code shows the working of
+# .startsswith() function
+
+text = "geeks for geeks."
+
+# returns False
+result = text.startswith('for geeks')
+print (result)
+
+# returns True
+result = text.startswith('geeks')
+print (result)
+
+# returns False
+result = text.startswith('for geeks.')
+print (result)
+
+# returns True
+result = text.startswith('geeks for geeks.')
+print (result)
+
+
+Output:
+
+False
+True
+False
+True
+
+
+
+
+Python string | strip()
+
+strip() is an inbuilt function in Python programming language that returns 
+a copy of the string with both leading and trailing characters removed (based on the string argument passed). 
+
+
+Syntax: 
+
+string.strip([chars])
+Parameter: 
+There is only one optional parameter in it:
+1)chars - a string specifying 
+the set of characters to be removed. 
+
+If the optional chars parameter is not given, all leading 
+and trailing whitespaces are removed from the string.
+Return Value:
+Returns a copy of the string with both leading and trailing characters removed.
+
+
+# Python3 program to demonstrate the use of
+# strip() method
+
+string = """ geeks for geeks """
+
+# prints the string without stripping
+print(string)
+
+# prints the string by removing leading and trailing whitespaces
+print(string.strip())
+
+# prints the string by removing geeks
+print(string.strip(' geeks'))
+
+
+Output: 
+    geeks for geeks     
+geeks for geeks
+for
+
+
+
+# Python Program to demonstrate use of strip() method
+
+str1 = 'geeks for geeks'
+# Print the string without stripping.
+print(str1)
+
+# String whose set of characters are to be
+# remove from original string at both its ends.
+str2 = 'ekgs'
+
+# Print string after stripping str2 from str1 at both its end.
+print(str1.strip(str2))
+
+
+Output: 
+geeks for geeks
+ for
+ 
+ 
+ 
+ 
+Python String Title method
+
+
+The title() function in python is the Python String Method which is used to convert 
+the first character in each word to Uppercase and remaining characters to Lowercase in the string and returns a new string.
+
+
+Syntax: 
+
+str.title()
+parameters:str is a valid string which we need to convert.
+return: This function returns a string which 
+has first letter in each word is uppercase and all 
+remaining letters are lowercase.
+
+
+# Python title() Method Example
+
+str1 = 'geeKs foR geEks'
+str2 = str1.title()
+print 'First Output after Title() method is = ', str2
+
+# observe the original string
+print 'Converted String is = ', str1.title()
+print 'Original String is = ', str1
+
+# Performing title() function directly
+str3 = 'ASIPU pawan kuMAr'.title()
+print 'Second Output after Title() method is = ', str3
+
+str4 = 'stutya kUMari sHAW'.title()
+print 'Third Output after Title() method is = ', str4
+
+str5 = '6041'.title()
+print 'Fourth Output after Title() method is = ', str5
+
+
+Output: 
+ 
+
+First Output after title() method is =  Geeks For Geeks
+Converted String is =  Geeks For Geeks
+Original String is =  geeKs foR geEks
+Second Output after title() method is =  Asipu Pawan Kumar
+Third Output after title() method is =  Stutya Kumari Shaw
+Fourth Output after title() method is =  6041
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

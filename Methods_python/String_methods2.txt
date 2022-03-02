@@ -1,0 +1,632 @@
+String methods:
+==================
+
+
+Python String isprintable() Method
+
+
+Python String isprintable() is a built-in method used for string handling. 
+The isprintable() method returns “True” if all characters in the string are printable or the string is empty, Otherwise, It returns “False”. 
+This function is used to check if the argument contains any printable characters such as:
+
+Digits ( 0123456789 )
+Uppercase letters ( ABCDEFGHIJKLMNOPQRSTUVWXYZ )
+Lowercase letters ( abcdefghijklmnopqrstuvwxyz )
+Punctuation characters ( !”#$%&'()*+, -./:;?@[\]^_`{ | }~ )
+Space ( )
+
+
+yntax: 
+
+string.isprintable()
+
+Parameters:
+
+isprintable() does not take any parameters
+
+Returns:
+
+True – If all characters in the string are printable or the string is empty.
+False – If the string contains 1 or more nonprintable characters.
+Errors Or Exceptions:
+
+The function does not take any arguments, therefore no parameters should be passed, otherwise, it returns an error.
+The only whitespace character which is printable is space or ” “, otherwise every whitespace character is non-printable and the function returns “False”.
+The empty string is considered printable and it returns “True”.
+
+
+# Python code for implementation of isprintable()
+
+# checking for printable characters
+string = 'My name is Ayush'
+print(string.isprintable())
+
+# checking if \n is a printable character
+string = 'My name is \n Ayush'
+print(string.isprintable())
+
+# checking if space is a printable character
+string = ''
+print( string.isprintable())
+
+
+Output: 
+
+True
+False
+True
+
+
+Python String isspace() Method
+
+Python String isspace() is a built-in method used for string handling. 
+The isspace() method returns “True” if all characters in the string are whitespace characters, Otherwise, It returns “False”. 
+This function is used to check if the argument contains all whitespace characters such as:
+‘ ‘ – Space
+‘\t’ – Horizontal tab
+‘\n’ – Newline
+‘\v’ – Vertical tab
+‘\f’ – Feed
+‘\r’ – Carriage return
+
+Syntax:
+
+string.isspace()
+
+Parameters:
+
+isspace() does not take any parameters
+
+Returns:
+
+True – If all characters in the string are whitespace characters.
+False – If the string contains 1 or more non-whitespace characters.
+
+
+# Python code for implementation of isspace()
+
+# checking for whitespace characters
+string = 'Geeksforgeeks'
+
+print(string.isspace())
+
+# checking if \n is a whitespace character
+string = '\n \n \n'
+
+print(string.isspace())
+
+string = 'Geeks\nfor\ngeeks'
+print( string.isspace())
+
+
+
+Output: 
+
+False
+True
+False
+
+
+
+Python String istitle() Method
+
+Python String istitle() method returns True if the string is a titlecased string otherwise it returns False. 
+What is titlecased? The string which has the first character in each word Uppercase and remaining all characters Lowercase alphabets. 
+
+Syntax: 
+
+string.istitle()
+
+Parameters: 
+
+The istitle() method doesn’t take any parameters.
+
+Returns: 
+
+True if the string is a titlecased string otherwise it returns False.
+
+
+# First character in each word is
+# uppercase and remaining lowercases
+s = 'Geeks For Geeks'
+print(s.istitle())
+
+# First character in first
+# word is lowercase
+s = 'geeks For Geeks'
+print(s.istitle())
+
+# Third word has uppercase
+# characters at middle
+s = 'Geeks For GEEKs'
+print(s.istitle())
+
+s = '6041 Is My Number'
+print(s.istitle())
+
+# word has uppercase
+# characters at middle
+s = 'GEEKS'
+print(s.istitle())
+
+
+Output: 
+
+True
+False
+False
+True
+False
+
+
+Python String isupper() method
+
+Python String isupper() method returns whether or not all characters in a string are uppercased or not.
+
+Syntax:
+
+string.isupper()
+
+Parameters:
+
+The isupper() method doesn’t take any parameters.
+
+Returns:
+
+True if all the letters in the string are in the upper case and False if even one of them is in the lower case. 
+
+
+# Python3 code to demonstrate
+# working of isupper()
+
+# initializing string
+isupp_str = "GEEKSFORGEEKS"
+not_isupp = "Geeksforgeeks"
+
+# Checking which string is
+# completely uppercase
+print ("Is GEEKSFORGEEKS full uppercase ? : " + str(isupp_str.isupper()))
+print ("Is Geeksforgeeks full uppercase ? : " + str(not_isupp.isupper()))
+
+
+Output: 
+
+Is GEEKSFORGEEKS full uppercase ? : True
+Is Geeksforgeeks full uppercase ? : False
+
+
+Python String join() Method
+
+
+Python String join() method is a string method and returns a string in which the elements of the sequence have been joined by the str separator.
+
+Syntax: 
+
+string_name.join(iterable) 
+
+Parameters: 
+
+The join() method takes iterable – objects capable of returning their members one at a time. Some examples are List, Tuple, String, Dictionary, and Set
+
+Return Value: 
+
+The join() method returns a string concatenated with the elements of iterable. 
+
+Type Error:
+
+If the iterable contains any non-string values, it raises a TypeError exception. 
+
+
+# Python program to demonstrate the
+# use of join function to join list
+# elements with a character.
+
+list1 = ['1','2','3','4']
+
+s = "-"
+
+# joins elements of list1 by '-'
+# and stores in sting s
+s = s.join(list1)
+
+# join use to join a list of
+# strings to a separator s
+print(s)
+
+
+
+Output: 
+
+1-2-3-4
+
+
+String rjust() and ljust() in python()
+
+String rjust() The string rjust() method returns a new string of given length after substituting a given character in left side of original string.
+Syntax:
+
+string.rjust(length, fillchar)
+Parameters:
+
+length: length of the modified string. If length is less than or equal to the length of the original string then original string is returned.
+fillchar: (optional) characters which needs to be padded. If it’s not provided, space is taken as a default argument.
+
+Returns:
+
+Returns a new string of given length after substituting a given character in left side of original string
+
+
+# Python program to demonstrate working of
+# rjust()
+string = 'geeks'
+length = 8
+
+# If no fill character is provided, space
+# is used as fill character
+print(string.rjust(length))
+
+
+Output:
+
+   geeks
+   
+# example string
+string = 'geeks'
+length = 8
+fillchar = '*'
+
+print(string.rjust(length, fillchar))
+
+
+Output:
+
+***geeks 
+
+
+String ljust()
+The string ljust() method returns a new string of given length after substituting a given character in right side of original string.
+
+Syntax:
+
+string.ljust(length, fillchar)
+
+Parameters:
+
+length: length of the modified string. 
+If length is less than or equal to the length of the original string then original string is returned.
+fillchar: (optional) characters which needs to be padded. If it’s not provided, space is taken as a default argument.
+
+Returns:
+
+Returns a new string of given length after substituting a given character in right side of original string.
+
+
+# example string
+string = 'geeks'
+length = 8
+
+# If no fill character is provided, space
+# is used as fill character.
+print(string.ljust(length))
+
+
+Output: (Three spaces are printed after geeks)
+
+geeks 
+
+
+
+# example string
+string = 'geeks'
+length = 8
+fillchar = '*'
+
+# print left justified string
+print(string.ljust(length, fillchar))
+
+
+Output:
+
+geeks*** 
+
+
+Python String | replace()
+
+replace() is an inbuilt function in the Python programming language that returns 
+a copy of the string where all occurrences of a substring are replaced with another substring. 
+
+
+Syntax : 
+
+string.replace(old, new, count)
+Parameters : 
+ 
+
+old – old substring you want to replace. 
+new – new substring which would replace the old substring.
+count – the number of times you want to replace the old substring with the new substring. (Optional ) 
+
+Return Value : 
+It returns a copy of the string where all occurrences of a substring are replaced with another substring. 
+ 
+
+Note: 
+
+If count is not specified then all the occurrences of the old substring are replaced with the new substring.
+This method returns the copy of the string i.e. it does not change the original string. 
+
+
+# Python3 program to demonstrate the
+# use of replace() method
+
+string = "geeks for geeks geeks geeks geeks"
+
+# Prints the string by replacing all
+# geeks by Geeks
+print(string.replace("geeks", "Geeks"))
+
+# Prints the string by replacing only
+# 3 occurrence of Geeks
+print(string.replace("geeks", "GeeksforGeeks", 3))
+
+
+Output : 
+ 
+
+Geeks for Geeks Geeks Geeks Geeks
+GeeksforGeeks for GeeksforGeeks GeeksforGeeks geeks geeks
+
+
+# Python3 program to demonstrate the
+# use of replace() method
+
+string = "geeks for geeks geeks geeks geeks"
+
+# Prints the string by replacing
+# e by a
+print(string.replace("e", "a"))
+
+# Prints the string by replacing only
+# 3 occurrence of ek by a
+print(string.replace("ek", "a", 3))
+
+
+Output: 
+ 
+
+gaaks for gaaks gaaks gaaks gaaks
+geas for geas geas geeks geeks
+
+
+
+Python string | swapcase()
+
+
+The string swapcase() method converts all uppercase characters to lowercase and vice versa of the given string, and returns it.
+
+Syntax:
+
+string_name.swapcase()
+Here string_name is the string whose cases are to be swapped.
+
+Parameter: The swapcase() method does not takes any parameter.
+
+Return value:
+
+The swapcase() method returns a string with all the cases changed.
+
+
+# Python program to demonstrate the use of
+# swapcase() method
+
+string = "gEEksFORgeeks"
+
+# prints after swappong all cases
+print(string.swapcase())
+
+string = "striver"
+print(string.swapcase())
+
+
+Output:
+
+GeeKSforGEEKS
+STRIVER
+
+
+Python | String translate()
+
+
+translate() returns a string that is modified string of givens string according to given translation mappings.
+
+There are two ways to translate :
+
+Providing a mapping as a dictionary
+Parameters :
+
+string.translate(mapping)
+
+mapping – a dictionary having mapping between two characters.
+Returns : Returns modified string where each character is mapped to its corresponding character according to the provided mapping table.
+
+
+
+# Python3 code to demonstrate
+# translations without
+# maketrans()
+
+# specifying the mapping
+# using ASCII
+table = { 119 : 103, 121 : 102, 117 : None }
+
+# target string
+trg = "weeksyourweeks"
+
+# Printing original string
+print ("The string before translating is : ", end ="")
+print (trg)
+
+# using translate() to make translations.
+print ("The string after translating is : ", end ="")
+print (trg.translate(table))
+
+
+Output:
+The string before translating is : weeksyourweeks
+The string after translating is : geeksforgeeks
+
+
+
+# Python 3 Program to show working
+# of translate() method
+
+# specifying the mapping
+# using ASCII
+translation = {103: None, 101: None, 101: None}
+
+string = "geeks"
+print("Original string:", string)
+
+# translate string
+print("Translated string:",
+	string.translate(translation))
+
+
+
+Output:
+Original string: geeks
+Translated string: ks
+
+
+Python String upper()
+
+upper() method converts all lowercase characters in a string into uppercase characters and returns it
+
+Syntax :
+
+string.upper()
+Parameters :
+
+The upper() method doesn’t take any parameters.
+
+Returns :
+
+returns a uppercased string of the given string
+
+
+# Python3 program to show the
+# working of upper() function
+text = 'geeKs For geEkS'
+
+print("Original String:")
+print(text)
+
+# upper() function to convert
+# string to upper_case
+print("\nConverted String:")
+print(text.upper())
+
+
+Output :
+
+Original String:
+geeKs For geEkS
+
+Converted String:
+GEEKS FOR GEEKS
+
+
+# Python3 program to show the
+# working of upper() function
+text = 'g3Ek5 f0r gE3K5'
+
+print("Original String:")
+print(text)
+
+# upper() function to convert
+# string to upper_case
+print("\nConverted String:")
+print(text.upper())
+
+
+Output :
+
+Original String:
+g3Ek5 f0r gE3K5
+
+Converted String:
+G3EK5 F0R GE3K5
+
+
+# Python3 program to show the
+# working of upper() function
+text1 = 'geeks fOr geeks'
+
+text2 = 'gEeKS fOR GeeKs'
+
+# Comparison of strings using
+# upper() method
+if(text1.upper() == text2.upper()):
+	print("Strings are same")
+else:
+	print("Strings are not same")
+
+
+Output:
+
+Strings are same
+
+
+
+Python String | zfill()
+
+
+zfill() method returns a copy of the string with ‘0’ characters padded to the leftside of the given string.
+
+Syntax :
+
+str.zfill(length)
+Parameters :
+
+length : length is the length of the returned string from zfill() with ‘0’ digits filled to the leftside.
+
+Return :
+
+Returns a copy of the string with '0' characters   
+padded to the leftside of the given string.
+
+
+text = "geeks for geeks"
+
+print(text.zfill(25))
+
+print(text.zfill(20))
+
+# Given length is less than
+# the length od original string
+print(text.zfill(10))
+
+
+Output :
+
+0000000000geeks for geeks
+00000geeks for geeks
+geeks for geeks
+
+
+
+number = "6041"
+print(number.zfill(8))
+
+number = "+6041"
+print(number.zfill(8))
+
+text = "--anything%(&%(%)*^"
+print(text.zfill(20))
+
+
+Output :
+
+00006041
++0006041
+-0-anything%(&%(%)*^

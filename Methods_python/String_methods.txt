@@ -1,0 +1,951 @@
+================================================================================================================================================================
+
+Python String Methods:
+====================================================================================================================================================================
+
+Python string is a sequence of Unicode characters that is enclosed in the quotations marks. 
+In this article, we will discuss the in-built function i.e. the functions provided by the Python to operate on strings. 
+
+Note: Every string method does not change the original string instead returns a new string with the changed attributes. 
+
+Case Changing of Strings
+The below functions are used to change the case of the strings.
+
+lower(): Converts all uppercase characters in a string into lowercase
+upper(): Converts all lowercase characters in a string into uppercase
+title(): Convert string to title case
+
+
+# Python3 program to show the
+# working of upper() function
+text = 'geeKs For geEkS'
+
+# upper() function to convert
+# string to upper case
+print("\nConverted String:")
+print(text.upper())
+
+# lower() function to convert
+# string to lower case
+print("\nConverted String:")
+print(text.lower())
+
+# converts the first character to
+# upper case and rest to lower case
+print("\nConverted String:")
+print(text.title())
+
+# original string never changes
+print("\nOriginal String")
+print(text)
+
+
+Output:
+
+Converted String:
+GEEKS FOR GEEKS
+
+Converted String:
+geeks for geeks
+
+Converted String:
+Geeks For Geeks
+
+Original String
+geeKs For geEkS
+
+
+string capitalize() in Python
+
+
+string capitalize() in Python
+
+n Python, the capitalize() method returns a copy of the original string and 
+converts the first character of the string to a capital (uppercase) letter while making all other characters in the string lowercase letters.
+ 
+
+Syntax: 
+
+string_name.capitalize() 
+
+string_name: It is the name of string of
+             whose first character we want
+			 to capitalize.
+Parameter: The capitalize() function does not takes any parameter. 
+Return value: The capitalize() function returns a string with the first character in the capital. 
+Below is the python program to illustrate capitalize() function: 
+
+# Python program to demonstrate the
+# use of capitalize() function
+
+# capitalize() first letter of string
+# and make other letters lowercase
+name = "geeks FOR geeks"
+
+print(name.capitalize())
+
+# demonstration of individual words
+# capitalization to generate camel case
+name1 = "geeks"
+name2 = "for"
+name3 = "geeks"
+print(name1.capitalize() + name2.capitalize()
+						+ name3.capitalize())
+
+
+Output: 
+ 
+Geeks for geeks
+GeeksForGeek
+
+
+
+Python String casefold() Method
+
+
+Python String casefold() method is used to implement caseless string matching. 
+It is similar to lower() string method but case removes all the case distinctions present in a string. i.e ignore cases when comparing.
+
+Syntax: 
+
+string.casefold()
+
+Parameters:
+
+The casefold() method doesn’t take any parameters.
+
+Return value:
+
+It returns the case folded string the string converted to lower case.
+
+
+Convert String in Lower Case
+
+# Python program to convert string in lower case
+string = "GEEKSFORGEEKS"
+
+# print lowercase string
+print("lowercase string: ",string.casefold())
+
+Output:
+
+lowercase string: geeksforgeeks
+
+
+Python String center() Method
+
+
+Python String center() method creates and returns a new string that is padded with the specified character. 
+
+Syntax: 
+
+string.center(length[, fillchar])
+
+Parameters:
+
+length: length of the string after padding with the characters.
+fillchar: (optional) characters which need to be padded. If it’s not provided, space is taken as the default argument.
+Returns:
+
+Returns a string padded with specified fillchar and it doesn’t modify the original string.
+
+
+# Python program to illustrate
+# string center() in python
+string = "geeks for geeks"
+
+new_string = string.center(24)
+
+# here filchar not provided so takes space by default.
+print "After padding String is: ", new_string
+
+
+Output: 
+
+After padding String is:      geeks for geeks
+
+
+# Python program to illustrate
+# string center() in python
+string = "geeks for geeks"
+
+new_string = string.center(24, '#')
+
+# here fillchar is provided
+print "After padding String is:", new_string
+
+
+Output: 
+
+After padding String is: ####geeks for geeks#####
+
+
+
+Python String count() Method
+
+Python String count() function is an inbuilt function in python programming language that returns 
+the number of occurrences of a substring in the given string.
+
+Syntax: 
+
+string.count(substring, start=…, end=…)
+
+Parameters: 
+
+The count() function has one compulsory and two optional parameters. 
+Mandatory parameter: 
+substring – string whose count is to be found.
+Optional Parameters: 
+start (Optional) – starting index within the string where the search starts. 
+end (Optional) – ending index within the string where the search ends.
+Return Value:
+
+count() method returns an integer that denotes number of times a substring occurs in a given string. 
+
+
+# Python program to demonstrate the use of
+# count() method without optional parameters
+
+# string in which occurrence will be checked
+string = "geeks for geeks"
+
+# counts the number of times substring occurs in
+# the given string and returns an integer
+print(string.count("geeks"))
+
+
+Output: 
+
+2
+
+
+# Python program to demonstrate the use of
+# count() method using optional parameters
+
+# string in which occurrence will be checked
+string = "geeks for geeks"
+
+# counts the number of times substring occurs in
+# the given string between index 0 and 5 and returns
+# an integer
+print(string.count("geeks", 0, 5))
+
+print(string.count("geeks", 0, 15))
+
+
+Output: 
+
+1
+2
+
+
+
+Python Strings encode() method
+
+In today’s world, security holds the key in many applications. 
+Thus the need for secure storage of passwords in the database is required and hence there is to save encoded versions of strings. 
+To achieve this, python in its language has defined “encode()” that encodes strings with the specified encoding scheme. 
+There are several encoding schemes defined in the language. 
+The Python String encode() method encodes the string, using the specified encoding. 
+If no encoding is specified, UTF-8 will be used.
+
+Syntax:
+
+encode(encoding, error)
+
+Parameters: 
+
+encoding: Specifies the encoding on the basis of which encoding has to be performed. 
+error: Decides how to handle the errors if they occur, e.g ‘strict’ raises Unicode error in case of exception and ‘ignore’ ignores the errors that occurred. There are six types of error response
+strict – default response which raises a UnicodeDecodeError exception on failure
+ignore – ignores the unencodable unicode from the result
+replace – replaces the unencodable unicode to a question mark ?
+xmlcharrefreplace – inserts XML character reference instead of unencodable unicode
+backslashreplace – inserts a \uNNNN escape sequence instead of unencodable unicode
+namereplace – inserts a \N{…} escape sequence instead of unencodable unicode
+Returns: 
+
+Returns the string in the encoded form
+
+
+# Python3 code to print
+# all encodings available
+
+from encodings.aliases import aliases
+
+# Printing list available
+print("The available encodings are : ")
+print(aliases.keys())
+
+
+Output: 
+
+The available encodings are : 
+dict_keys(['ibm039', 'iso_ir_226', '1140', 'iso_ir_110', '1252', 'iso_8859_8', 'iso_8859_3', 'iso_ir_166', 'cp367', 'uu', 'quotedprintable', 'ibm775', 'iso_8859_16_2001', 'ebcdic_cp_ch', 'gb2312_1980', 'ibm852', 'uhc', 'macgreek', '850', 'iso2022jp_2', 'hz_gb_2312', 'elot_928', 'iso8859_1', 'eucjp', 'iso_ir_199', 'ibm865', 'cspc862latinhebrew', '863', 'iso_8859_5', 'latin4', 'windows_1253', 'csisolatingreek', 'latin5', '855', 'windows_1256', 'rot13', 'ms1361', 'windows_1254', 'ibm863', 'iso_8859_14_1998', 'utf8_ucs2', '500', 'iso8859', '775', 'l7', 'l2', 'gb18030_2000', 'l9', 'utf_32be', 'iso_ir_100', 'iso_8859_4', 'iso_ir_157', 'csibm857', 'shiftjis2004', 'iso2022jp_1', 'iso_8859_2_1987', 'cyrillic', 'ibm861', 'ms950', 'ibm437', '866', 'csibm863', '932', 'iso_8859_14', 'cskoi8r', 'csptcp154', '852', 'maclatin2', 'sjis', 'korean', '865', 'u32', 'csshiftjis', 'dbcs', 'csibm037', 'csibm1026', 'bz2', 'quopri', '860', '1255', '861', 'iso_ir_127', 'iso_celtic', 'chinese', 'l8', '1258', 'u_jis', 'cspc850multilingual', 'iso_2022_jp_2', 'greek8', 'csibm861', '646', 'unicode_1_1_utf_7', 'ibm862', 'latin2', 'ecma_118', 'csisolatinarabic', 'zlib', 'iso2022jp_3', 'ksx1001', '858', 'hkscs', 'shiftjisx0213', 'base64', 'ibm857', 'maccentraleurope', 'latin7', 'ruscii', 'cp_is', 'iso_ir_101', 'us_ascii', 'hebrew', 'ansi_x3.4_1986', 'csiso2022jp', 'iso_8859_15', 'ibm860', 'ebcdic_cp_us', 'x_mac_simp_chinese', 'csibm855', '1250', 'maciceland', 'iso_ir_148', 'iso2022jp', 'u16', 'u7', 's_jisx0213', 'iso_8859_6_1987', 'csisolatinhebrew', 'csibm424', 'quoted_printable', 'utf_16le', 'tis260', 'utf', 'x_mac_trad_chinese', '1256', 'cp866u', 'jisx0213', 'csiso58gb231280', 'windows_1250', 'cp1361', 'kz_1048', 'asmo_708', 'utf_16be', 'ecma_114', 'eucjis2004', 'x_mac_japanese', 'utf8', 'iso_ir_6', 'cp_gr', '037', 'big5_tw', 'eucgb2312_cn', 'iso_2022_jp_3', 'euc_cn', 'iso_8859_13', 'iso_8859_5_1988', 'maccyrillic', 'ks_c_5601_1987', 'greek', 'ibm869', 'roman8', 'csibm500', 'ujis', 'arabic', 'strk1048_2002', '424', 'iso_8859_11_2001', 'l5', 'iso_646.irv_1991', '869', 'ibm855', 'eucjisx0213', 'latin1', 'csibm866', 'ibm864', 'big5_hkscs', 'sjis_2004', 'us', 'iso_8859_7', 'macturkish', 'iso_2022_jp_2004', '437', 'windows_1255', 's_jis_2004', 's_jis', '1257', 'ebcdic_cp_wt', 'iso2022jp_2004', 'ms949', 'utf32', 'shiftjis', 'latin', 'windows_1251', '1125', 'ks_x_1001', 'iso_8859_10_1992', 'mskanji', 'cyrillic_asian', 'ibm273', 'tis620', '1026', 'csiso2022kr', 'cspc775baltic', 'iso_ir_58', 'latin8', 'ibm424', 'iso_ir_126', 'ansi_x3.4_1968', 'windows_1257', 'windows_1252', '949', 'base_64', 'ms936', 'csisolatin2', 'utf7', 'iso646_us', 'macroman', '1253', '862', 'iso_8859_1_1987', 'csibm860', 'gb2312_80', 'latin10', 'ksc5601', 'iso_8859_10', 'utf8_ucs4', 'csisolatin4', 'ebcdic_cp_be', 'iso_8859_1', 'hzgb', 'ansi_x3_4_1968', 'ks_c_5601', 'l3', 'cspc8codepage437', 'iso_8859_7_1987', '8859', 'ibm500', 'ibm1026', 'iso_8859_6', 'csibm865', 'ibm866', 'windows_1258', 'iso_ir_138', 'l4', 'utf_32le', 'iso_8859_11', 'thai', '864', 'euc_jis2004', 'cp936', '1251', 'zip', 'unicodebigunmarked', 'csHPRoman8', 'csibm858', 'utf16', '936', 'ibm037', 'iso_8859_8_1988', '857', 'csibm869', 'ebcdic_cp_he', 'cp819', 'euccn', 'iso_8859_2', 'ms932', 'iso_2022_jp_1', 'iso_2022_kr', 'csisolatin6', 'iso_2022_jp', 'x_mac_korean', 'latin3', 'csbig5', 'hz_gb', 'csascii', 'u8', 'csisolatin5', 'csisolatincyrillic', 'ms_kanji', 'cspcp852', 'rk1048', 'iso2022jp_ext', 'csibm273', 'iso_2022_jp_ext', 'ibm858', 'ibm850', 'sjisx0213', 'tis_620_2529_1', 'l10', 'iso_ir_109', 'ibm1125', '1254', 'euckr', 'tis_620_0', 'l1', 'ibm819', 'iso2022kr', 'ibm367', '950', 'r8', 'hex', 'cp154', 'tis_620_2529_0', 'iso_8859_16', 'pt154', 'ebcdic_cp_ca', 'ibm1140', 'l6', 'csibm864', 'csisolatin1', 'csisolatin3', 'latin6', 'iso_8859_9_1989', 'iso_8859_3_1988', 'unicodelittleunmarked', 'macintosh', '273', 'latin9', 'iso_8859_4_1988', 'iso_8859_9', 'ebcdic_cp_nl', 'iso_ir_144'])
+
+
+
+Code to encode the string 
+# Python code to demonstrate
+# encode()
+
+# initializing string
+str = "geeksforgeeks"
+
+# printing the encoded string
+print ("The encoded string in utf8 format is : ",)
+print (str.encode('utf8', 'ignore'))
+
+
+Output:
+
+The encoded string in utf8 format is : 
+b'geeksforgeeks'
+
+
+Encoding with the error parameter
+# unicode string
+string = 'GeeksforGeeks'
+
+# print string
+print('The string is:', string)
+
+# ignore error
+print(string.encode("ascii", "ignore"))
+
+# replace error
+print(string.encode("ascii", "replace"))
+
+
+
+Output:
+
+The string is: GeeksforGeeks
+b'GeeksforGeeks'
+b'GeeksforGeeks'
+
+
+Python String endswith() Method
+
+
+Python String endswith() method returns True if a string ends with the given suffix otherwise returns False.
+
+Syntax:
+
+str.endswith(suffix, start, end)
+
+Parameters: 
+
+suffix: Suffix is nothing but a string that needs to be checked. 
+start: Starting position from where suffix is needed to be checked within the string. 
+end: Ending position + 1 from where suffix is needed to be checked within the string.  
+Note: If start and end index is not provided then by default it takes 0 and length -1 as starting and ending indexes 
+where ending index is not included in our search.
+
+Returns: 
+It returns True if the string ends with the given suffix otherwise return False. 
+
+
+Working of endswith() method Without start and end Parameters
+
+# Python code shows the working of
+# .endswith() function
+
+text = "geeks for geeks."
+
+# returns False
+result = text.endswith('for geeks')
+print (result)
+
+# returns True
+result = text.endswith('geeks.')
+print (result)
+
+# returns True
+result = text.endswith('for geeks.')
+print (result)
+
+# returns True
+result = text.endswith('geeks for geeks.')
+print (result)
+
+
+Output: 
+
+False
+True
+True
+True
+
+
+
+expandtabs() method in Python
+
+expandtabs is a method specified in Strings in Python 3.
+
+Sometimes, there is a need of specifying the space in the string, 
+but the amount of space to be left is uncertain and depending upon the environment and conditions. 
+For these cases, the need to modify the string, again and again, is a tedious task. 
+Hence python in its library has “expandtabs()” which specifies the amount of space to be substituted with the “\t” symbol in the string.
+
+
+Syntax : expandtabs(space_size)
+
+Parameters :
+space_size : Specifies the space that is to be replaced with the “\t” symbol in the string. By default the space is 8.
+
+Returns : Returns the modified string with tabs replaced by the space.
+
+
+# Python3 code to demonstrate
+# exception of expandtabs()
+
+# initializing string
+st = "i\tlove\tgfg"
+
+# using expandtabs to insert spacing
+try:
+	print("Modified string using default spacing: ")
+	print(st.expandtabs(10.5))
+	
+except Exception as e:
+	print("Error !! The error occurred is :")
+	print(str(e))
+
+
+
+Output:
+
+Modified string using default spacing: 
+Error !! The error occurred is :
+integer argument expected, got float
+
+
+
+Python String find() method
+
+
+Python String find() method returns the lowest index of the substring if it is found in a given string. If it is not found then it returns -1. 
+Syntax:
+
+str.find(sub, start, end)
+
+Parameters: 
+
+sub: It’s the substring that needs to be searched in the given string. 
+start: Starting position where the sub needs to be checked within the string. 
+end: Ending position where suffix needs to be checked within the string. 
+Note #1: If start and end indexes are not provided then by default it takes 0 and length-1 as starting and ending indexes where ending indexes are not included in our search. 
+
+Returns: 
+
+Returns the lowest index of the substring if it is found in a given string. If it’s not found then it returns -1
+
+#find() With No start and end Argument
+word = 'geeks for geeks'
+
+# returns first occurrence of Substring
+result = word.find('geeks')
+print ("Substring 'geeks' found at index:", result )
+
+result = word.find('for')
+print ("Substring 'for ' found at index:", result )
+
+# How to use find()
+if (word.find('pawan') != -1):
+	print ("Contains given substring ")
+else:
+	print ("Doesn't contains given substring")
+
+Output: 
+
+Substring 'geeks' found at index: 0
+Substring 'for ' found at index: 6
+Doesn't contains given substring
+
+
+
+#find() With start and end Arguments
+word = 'geeks for geeks'
+
+# Substring is searched in 'eks for geeks'
+print(word.find('ge', 2))
+
+# Substring is searched in 'eks for geeks'
+print(word.find('geeks ', 2))
+
+# Substring is searched in 's for g'
+print(word.find('g', 4, 10))
+
+# Substring is searched in 's for g'
+print(word.find('for ', 4, 11))
+
+
+Output: 
+
+10
+-1
+-1
+6
+
+
+
+Python String format() Method
+
+
+Python format() function has been introduced for handling complex string formatting more efficiently. 
+This method of the built-in string class provides functionality for complex variable substitutions and value formatting. 
+This new formatting technique is regarded as more elegant. The general syntax of format() method is string.format(var1, var2,…)
+
+Syntax : { } .format(value)
+
+Parameters : 
+(value) : Can be an integer, floating point numeric constant, string, characters or even variables.
+Returntype : Returns a formatted string with the value passed as parameter in the placeholder position.
+
+# Python3 program to demonstrate
+# the str.format() method
+
+# using format option in a simple string
+print("{}, A computer science portal for geeks."
+	.format("GeeksforGeeks"))
+
+# using format option for a
+# value stored in a variable
+str = "This article is written in {}"
+print(str.format("Python"))
+
+# formatting a string using a numeric constant
+print("Hello, I am {} years old !".format(18))
+
+
+Output :
+
+GeeksforGeeks, A computer science portal for geeks.
+This article is written in Python
+Hello, I am  18 years old!
+
+
+
+Python String format_map() Method
+
+Python String format_map() method is an inbuilt function in Python, which is used to return a dictionary key’s value.
+
+Syntax: 
+
+string.format_map(z)
+
+Parameters: 
+
+Here z is a variable in which the input dictionary is stored and string is the key of the input dictionary. input_dict: Takes a single parameter which is the input dictionary.
+
+Returns: 
+
+Returns key’s values of the input dictionary.
+
+
+#Python String format_map() method
+# input stored in variable a.
+a = {'x':'John', 'y':'Wick'}
+
+# Use of format_map() function
+print("{x}'s last name is {y}".format_map(a))
+
+
+Output: 
+
+John's last name is Wick
+
+
+# input stored in variable a.
+a = {'x':"geeksforgeeks", 'y':'b'}
+
+# Use of format_map() function
+print('{x} {y}'.format_map(a))
+
+
+Output: 
+
+geeksforgeeks b
+
+
+
+Python String index() Method
+
+Finding the string(substring) in a string is an application that has many uses in day-to-day life. 
+Python offers this using a function index(), 
+which returns the position of the first occurrence of a substring in a string. 
+
+Syntax: 
+
+ch.index(ch1, begp, endp)
+
+Parameters: 
+
+ch1 : The string to be searched for.
+begp (default : 0) : This function specifies the position from where search has to be started. 
+endp (default : string_len) : This function specifies the position from where search has to end.
+Return Value: 
+
+Returns the first position of the substring found.
+
+Exception: 
+
+Raises ValueError if argument string is not found.
+
+
+# Python code to demonstrate the working of
+# index()
+
+# initializing target string
+ch = "geeksforgeeks"
+
+# initializing argument string
+ch1 = "geeks"
+
+# using index() to find position of "geeks"
+# starting from 2nd index
+# prints 8
+pos = ch.index(ch1,2)
+
+print ("The first position of geeks after 2nd index : ",end="")
+print (pos)
+
+
+Output: 
+
+The first position of geeks after 2nd index : 8
+
+
+
+Python String isalnum() Method
+
+Python String isalnum() method checks whether all the characters in a given string are alphanumeric or not. 
+Alphanumeric means a character that is either a letter or a number.
+
+Syntax: 
+
+string_name.isalnum() 
+
+Parameter: 
+
+isalnum() method takes no parameters 
+
+Return: 
+
+True: If all the characters are alphanumeric 
+False: If one or more characters are not alphanumeric.
+
+
+# Python program to demonstrate the use of
+# isalnum() method
+
+# here a,b and c are characters and 1,2 and 3
+# are numbers
+string = "abc123"
+print(string.isalnum())
+
+# here a,b and c are characters and 1,2 and 3
+# are numbers but space is not a alphanumeric
+# character
+string = "abc 123"
+print(string.isalnum())
+
+Output: 
+
+True
+False
+
+
+Python String isalpha() Method
+
+Python String isalpha() method is a built-in method used for string handling. 
+The isalpha() methods returns “True” if all characters in the string are alphabets, Otherwise, It returns “False”.  
+This function is used to check if the argument includes only alphabet characters (mentioned below).
+
+Syntax: 
+
+string.isalpha()
+
+Parameters:
+
+isalpha() does not take any parameters
+
+Returns:
+
+True: If all characters in the string are alphabet.
+False: If the string contains 1 or more non-alphabets.
+Errors and Exceptions:
+
+It contains no arguments, therefore an error occurs if a parameter is passed
+Both uppercase and lowercase alphabets return “True”
+Space is not considered to be the alphabet, therefore it returns “False”
+
+
+# Python code for implementation of isalpha()
+
+# checking for alphabets
+string = 'Ayush'
+print(string.isalpha())
+
+string = 'Ayush0212'
+print(string.isalpha())
+
+# checking if space is an alphabet
+string = 'Ayush Saxena'
+print( string.isalpha())
+
+
+Output: 
+
+True
+False
+False
+
+
+Python string | isdecimal()
+
+isdecimal()-It is a function in Python that returns true if all characters in a string are decimal. 
+If all characters are not decimal then it returns false.
+
+Syntax:
+
+string_name.isdecimal()
+Here string_name is the string whose characters are to be checked
+
+Parameters:This method does not takes any parameters .
+
+Returns Value:
+
+True – all characters are decimal
+False – one or more then one character is not decimal.
+
+
+# Python3 program to demonstrate the use
+# of isdecimal()
+
+s = "12345"
+print(s.isdecimal())
+
+# contains alphabets
+s = "12geeks34"
+print(s.isdecimal())
+
+# contains numbers and spaces
+s = "12 34"
+print(s.isdecimal())
+
+
+Output:
+
+True
+False
+False
+
+
+
+Python String isdigit() Method
+
+Python String isdigit() method is a built-in method used for string handling. 
+The isdigit() method returns “True” if all characters in the string are digits, Otherwise, It returns “False”. 
+This function is used to check if the argument contains digits such as 0123456789
+
+Syntax:
+
+string.isdigit()
+
+Parameters:
+
+isdigit() does not take any parameters
+
+Returns:
+
+True – If all characters in the string are digits.
+False – If the string contains 1 or more non-digits.
+Errors And Exceptions:  
+
+It does not take any arguments, therefore it returns an error if a parameter is passed
+Superscript and subscripts are considered digit characters along with decimal characters, therefore, isdigit() returns “True”.
+The Roman numerals, currency numerators, and fractions are not considered to be digits. Therefore, the isdigit() returns “False”
+
+
+# Python code for implementation of isdigit()
+
+# checking for digit
+string = '15460'
+print(string.isdigit())
+
+string = '154ayush60'
+print(string.isdigit())
+
+
+Output: 
+
+True
+False
+
+
+#String Containing digits and Numeric Characters
+s = '23455'
+print(s.isdigit())
+
+# s = '²3455'
+# subscript is a digit
+s = '\u00B23455'
+
+print(s.isdigit())
+
+# s = '½'
+# fraction is not a digit
+s = '\u00BD'
+
+print(s.isdigit())
+
+Output:
+
+True
+True
+False
+
+
+
+Python String isidentifier() Method
+
+Python String isidentifier() method is used to check whether a string is a valid identifier or not. 
+The method returns True if the string is a valid identifier else returns False. 
+
+
+Syntax: 
+
+string.isidentifier()
+
+Parameters:
+
+The method does not take any parameters
+
+Return Value: 
+
+The method can return one of the two values: 
+
+True: When the string is a valid identifier.
+False: When the string is not a valid identifier.
+
+
+# Python code to illustrate
+# the working of isidentifier()
+
+# String with spaces
+string = "Geeks for Geeks"
+print(string.isidentifier())
+
+# A Perfect identifier
+string = "GeeksforGeeks"
+print(string.isidentifier())
+
+# Empty string
+string = ""
+print(string.isidentifier())
+
+# Alphanumerical string
+string = "Geeks0for0Geeks"
+print(string.isidentifier())
+
+# Beginning with an integer
+string = "54Geeks0for0Geeks"
+print(string.isidentifier())
+
+
+
+Output: 
+
+False
+True
+False
+True
+False
+
+
+Python String islower() method
+
+Python String islower() method checks if all characters in the string are lowercase. 
+This method returns True if all alphabets in a string are lowercase alphabets. 
+If the string contains at least one uppercase alphabet, it returns False.
+
+Syntax: 
+
+string.islower()
+
+Parameters: 
+
+None
+
+Returns: 
+
+True: If all the letters in the string are in lower case and
+False: If even one of them is in upper case.
+
+
+# Python3 code to demonstrate
+# working of islower()
+
+# initializing string
+islow_str = "geeksforgeeks"
+not_islow = "Geeksforgeeks"
+
+# checking which string is
+# completely lower
+print ("Is geeksforgeeks full lower ? : " + str(islow_str.islower()))
+print ("Is Geeksforgeeks full lower ? : " + str(not_islow.islower()))
+
+
+Output: 
+
+Is geeksforgeeks full lower ? : True
+Is Geeksforgeeks full lower ? : False
+
+
+
+Python String isnumeric() Method
+
+Python String isnumeric() method is a built-in method used for string handling. 
+The issnumeric() method returns “True” if all characters in the string are numeric characters, Otherwise, 
+It returns “False”. 
+This function is used to check if the argument contains all numeric characters 
+such as integers, fractions, subscript, superscript, roman numerals, etc.(all written in Unicode)
+
+Syntax: 
+
+string.isnumeric()
+
+Parameters:
+
+isnumeric() does not take any parameters
+
+Returns :
+
+True – If all characters in the string are numeric characters.
+False – If the string contains 1 or more non-numeric characters.
+Errors and Exceptions:
+
+It does not contain any arguments, therefore, it returns an error if a parameter is passed.
+Whitespaces are not considered to be numeric, therefore, it returns “False”
+Subscript, Superscript, Fractions, Roman numerals (all written in Unicode)are all considered to be numeric, Therefore, it returns “True”
+
+
+# Python code for implementation of isnumeric()
+	
+# checking for numeric characters
+string = '123ayu456'
+print(string.isnumeric())
+
+string = '123456'
+print( string.isnumeric())
+
+
+Output: 
+
+False
+True
+
+
+

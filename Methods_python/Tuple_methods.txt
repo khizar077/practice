@@ -1,0 +1,95 @@
+======================================================================================================================================
+Tuple Methods:
+========================================================================================================================================
+
+Python Tuples is an immutable collection of that are more like lists. 
+Python Provides a couple of methods to work with tuples. 
+In this article, we will discuss these two methods in detail with the help of some examples.
+
+Count() Method
+The count() method of Tuple returns the number of times the given element appears in the tuple.
+
+Syntax:
+
+tuple.count(element)
+
+Using the Tuple count() method
+
+# Creating tuples
+Tuple1 = (0, 1, 2, 3, 2, 3, 1, 3, 2)
+Tuple2 = ('python', 'geek', 'python',
+		'for', 'java', 'python')
+
+# count the appearance of 3
+res = Tuple1.count(3)
+print('Count of 3 in Tuple1 is:', res)
+
+# count the appearance of python
+res = Tuple2.count('python')
+print('Count of Python in Tuple2 is:', res)
+
+
+Output:
+
+Count of 3 in Tuple1 is: 3
+Count of Python in Tuple2 is: 3
+
+
+
+Counting tuples and lists as elements in Tuples
+
+
+Output:
+
+Count of (2, 3) in Tuple is: 2
+Count of [3, 2] in Tuple is: 1
+
+
+Index() Method
+The Index() method returns the first occurrence of the given element from the tuple.
+
+Syntax:
+
+tuple.index(element, start, end)
+
+Parameters:
+
+element: The element to be searched.
+start (Optional): The starting index from where the searching is started
+end (Optional): The ending index till where the searching is done
+Note: This method raises a ValueError if the element is not found in the tuple.
+
+Using Tuple Index() Method
+
+
+# Creating tuples
+Tuple = (0, 1, 2, 3, 2, 3, 1, 3, 2)
+
+# getting the index of 3
+res = Tuple.index(3)
+print('First occurrence of 3 is', res)
+
+# getting the index of 3 after 4th
+# index
+res = Tuple.index(3, 4)
+print('First occurrence of 3 after 4th index is:', res)
+
+
+Output:
+
+First occurrence of 3 is 3
+First occurrence of 3 after 4th index is: 5
+
+
+Using Tuple() method when the element is not found
+
+
+# Creating tuples
+Tuple = (0, 1, 2, 3, 2, 3, 1, 3, 2)
+
+# getting the index of 3
+res = Tuple.index(4)
+
+Output:
+
+ValueError: tuple.index(x): x not in tuple

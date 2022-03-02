@@ -1,0 +1,891 @@
+==========================================================================================================================================
+Set Methods:
+===========================================================================================================================================
+
+A Set in Python is a collection of unique elements which are unordered and mutable. 
+Python provides various functions to work with Set. 
+In this article, we will see a list of all the functions provided by Python to deal with Sets.
+
+
+Adding and Removing elements
+We can add and remove elements form the set with the help of the below functions
+
+add(): Adds a given element to a set
+clear(): Removes all elements from the set
+discard(): Removes the element from the set
+pop(): Returns and removes a random element from the set
+remove(): Removes the element from the set
+
+
+# set of letters
+s = {'g', 'e', 'k', 's'}
+
+# adding 's'
+s.add('f')
+print('Set after updating:', s)
+
+# Discarding element from the set
+s.discard('g')
+print('\nSet after updating:', s)
+
+# Removing element from the set
+s.remove('e')
+print('\nSet after updating:', s)
+
+# Popping elements from the set
+print('\nPopped element', s.pop())
+print('Set after updating:', s)
+
+s.clear()
+print('\nSet after updating:', s)
+
+
+
+Output
+Set after updating: {'g', 'k', 's', 'e', 'f'}
+
+Set after updating: {'k', 's', 'e', 'f'}
+
+Set after updating: {'k', 's', 'f'}
+
+Popped element k
+Set after updating: {'s', 'f'}
+
+Set after updating: set()
+
+
+
+set add() in python
+
+
+# set of letters
+GEEK = {'g', 'e', 'k'}
+
+# adding 's'
+GEEK.add('s')
+print('Letters are:', GEEK)
+
+# adding 's' again
+GEEK.add('s')
+print('Letters are:', GEEK)
+
+
+Output:
+
+('Letters are:', set(['k', 'e', 's', 'g']))
+('Letters are:', set(['k', 'e', 's', 'g'])
+
+# set of letters
+GEEK = {6, 0, 4}
+
+# adding 1
+GEEK.add(1)
+print('Letters are:', GEEK)
+
+# adding 0
+GEEK.add(0)
+print('Letters are:', GEEK)
+
+
+Output:
+
+('Letters are:', set([0, 1, 4, 6]))
+('Letters are:', set([0, 1, 4, 6]))
+
+
+
+set clear() in python
+
+he clear() method removes all elements from the set.
+
+Syntax:
+
+set.clear()
+parameters:
+The clear() method doesn't take any parameters.
+Return:
+The clear() method doesn't return any value.
+
+
+# set of letters
+GEEK = {'g', 'e', 'e', 'k', 's'}
+print('GEEK before clear:', GEEK)
+
+# clearing vowels
+GEEK.clear()
+print('GEEK after clear:', GEEK)
+
+
+Output:
+
+GEEK before clear: set(['s', 'e', 'k', 'g'])
+GEEK after clear: set([])
+
+
+# set of letters
+GEEK = {6, 0, 4, 1}
+print('GEEK before clear:', GEEK)
+
+# clearing vowels
+GEEK.clear()
+print('GEEK after clear:', GEEK)
+
+Output:
+
+GEEK before clear: set([0, 1, 4, 6])
+GEEK after clear: set([])
+
+
+set copy() in python
+
+Parameters:The copy() method for sets doesn’t take any parameters.
+
+Return value:The function returns a shallow copy of the original set.
+
+Syntax:
+
+set_name.copy()
+
+
+# Python3 program to demonstrate the use
+# of join() function
+
+set1 = {1, 2, 3, 4}
+
+# function to copy the set
+set2 = set1.copy()
+
+# prints the copied set
+print(set2)	
+
+
+Output:
+
+{1, 2, 3, 4}
+
+
+Shallow Copy Example :
+
+
+# Python program to demonstrate that copy
+# created using set copy is shallow
+first = {'g', 'e', 'e', 'k', 's'}
+second = first.copy()
+
+# before adding
+print 'before adding: '
+print 'first: ',first
+print 'second: ', second
+
+# Adding element to second, first does not
+# change.
+second.add('f')
+
+# after adding
+print 'after adding: '
+print 'first: ', first
+print 'second: ', second
+
+
+
+Output:
+
+before adding: 
+first:  set(['s', 'e', 'k', 'g'])
+second:  set(['s', 'e', 'k', 'g'])
+after adding: 
+first:  set(['s', 'e', 'k', 'g'])
+second:  set(['s', 'e', 'k', 'g', 'f'])
+
+
+Python Set | difference()
+
+
+The difference between the two sets in Python is equal to the difference between the number of elements in two sets. 
+The function difference() returns a set that is the difference between two sets. 
+Let’s try to find out what will be the difference between two sets A and B. 
+Then (set A – set B) will be the elements present in set A but not in B and (set B – set A) will be the elements present in set B but not in set A.
+
+Syntax:
+
+set_A.difference(set_B) for (A - B)
+set _B.difference(set_A) for (B - A)
+
+
+
+# Python code to get the difference between two sets
+# using difference() between set A and set B
+
+# Driver Code
+A = {10, 20, 30, 40, 80}
+B = {100, 30, 80, 40, 60}
+print (A.difference(B))
+print (B.difference(A))
+
+
+Output:
+{10, 20}
+{100, 60}
+
+
+We can also use – operator to find the difference between two sets.
+
+
+# Python code to get the difference between two sets
+# using difference() between set A and set B
+
+# Driver Code
+A = {10, 20, 30, 40, 80}
+B = {100, 30, 80, 40, 60}
+print (A - B)
+print (B - A)
+
+
+Output:
+{10, 20}
+{100, 60}
+
+
+If we have equal sets then it will return the null set.
+
+
+# Python code to get the difference between two sets
+# using difference() between set A and set B
+
+# Driver Code
+A = {10, 20, 30, 40, 80}
+B = {10, 20, 30, 40, 80, 100}
+print (A - B)
+
+
+Output:
+set()
+
+
+Python Set | difference_update()
+
+
+The difference_update() method helps in an in-place way of differentiating the set. 
+The previously discussed set difference() helps to find out the difference between two sets and returns a new set with the difference value, 
+but the difference_update() updates the existing caller set.
+If A and B are two sets. The set difference() method will get the (A – B) and will return a new set. 
+The set difference_update() method modifies the existing set. 
+If (A – B) is performed, then A gets modified into (A – B), and if (B – A) is performed, then B gets modified into (B – A).
+
+Syntax: 
+ 
+A.difference_update(B) for (A - B)
+B.difference_update(A) for (B - A)
+
+
+# Python code to get the difference between two sets
+# using difference_update() between set A and set B
+
+# Driver Code
+A = {10, 20, 30, 40, 80}
+B = {100, 30, 80, 40, 60}
+
+# Modifies A and returns None
+A.difference_update(B)
+
+# Prints the modified set
+print (A)
+
+
+Output: 
+
+{20, 10}
+
+
+frozenset() in Python
+
+The frozenset() is an inbuilt function in Python which takes an iterable object as input and makes them immutable. 
+Simply it freezes the iterable objects and makes them unchangeable.
+
+In Python, frozenset is the same as set except the frozensets are immutable which means that elements from the frozenset cannot be added or removed once created. 
+This function takes input as any iterable object and converts them into an immutable object. 
+The order of elements is not guaranteed to be preserved.
+
+Syntax : frozenset(iterable_object_name)
+Parameter : This function accepts iterable object as input parameter.
+Return Type: This function return an equivalent frozenset object.
+
+
+If no parameters are passed to frozenset() function then it returns a empty frozenset type object. 
+
+# Python program to understand frozenset() function
+
+# tuple of numbers
+nu = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# converting tuple to frozenset
+fnum = frozenset(nu)
+
+# printing details
+print("frozenset Object is : ", fnum)
+
+
+Output: 
+frozenset Object is :  frozenset({1, 2, 3, 4, 5, 6, 7, 8, 9})
+
+
+Since frozenset object are immutable they are mainly used as key in dictionary or elements of other sets. 
+Below example explains it clearly. 
+
+# Python program to understand use
+# of frozenset function
+
+# creating a dictionary
+Student = {"name": "Ankit", "age": 21, "sex": "Male",
+		"college": "MNNIT Allahabad", "address": "Allahabad"}
+
+# making keys of dictionary as frozenset
+key = frozenset(Student)
+
+# printing keys details
+print('The frozen set is:', key)
+
+
+Output: 
+The frozen set is: frozenset({'sex', 'age', 'address', 'name', 'college'})
+
+
+Intersection() function Python
+
+Python intersection() function return a new set with an element that is common to all set
+
+The intersection of two given sets is the largest set which contains all the elements that are common to both sets. 
+The intersection of two given sets A and B is a set which consists of all the elements which are common to both A and B.
+
+
+Python intersection() Syntax:
+set1.intersection(set2, set3, set4….) 
+In parameters, any number of sets can be given
+
+Python intersection() Return value:
+The intersection() function returns a set, which has the intersection of all sets(set1, set2, set3…) with set1. 
+It returns a copy of set1 only if no parameter is passed. 
+
+
+# Python3 program for intersection() function
+set1 = {2, 4, 5, 6}
+set2 = {4, 6, 7, 8}
+set3 = {4, 6, 8}
+
+# union of two sets
+print("set1 intersection set2 : ",
+	set1.intersection(set2))
+
+# union of three sets
+print("set1 intersection set2 intersection set3 :",
+	set1.intersection(set2, set3))
+
+
+Output: 
+
+set1 intersection set2 :  {4, 6}
+set1 intersection set2 intersection set3 : {4, 6}
+
+
+we can also get intersection using & operator.
+
+
+# Python3 program for intersection() function
+set1 = {2, 4, 5, 6}
+set2 = {4, 6, 7, 8}
+set3 = {1, 0, 12}
+
+print(set1 & set2)
+print(set1 & set3)
+
+print(set1 & set2 & set3)
+
+
+Output:
+
+{4, 6}
+set()
+set()
+
+
+
+Python set intersection opposite
+symmetric_difference() is a opposite to the set.intersection() methods.
+
+# Python3 program for intersection() function
+set1 = {2, 4, 5, 6}
+set2 = {4, 6, 7, 8}
+set3 = {1, 0, 12}
+
+print(set1.symmetric_difference(set2))
+print(set1.symmetric_difference(set3))
+print(set2.symmetric_difference(set3))
+
+
+Output:
+
+{2, 5, 7, 8}
+{0, 1, 2, 4, 5, 6, 12}
+{0, 1, 4, 6, 7, 8, 12}
+
+
+isdisjoint() function in Python
+
+
+Python set isdisjoint() function check whether the two sets are disjoint or not, if it is disjoint then it returns True otherwise it will return False. 
+Two sets are said to be disjoint when their intersection is null. 
+In simple words, they do not have any common element in between them
+
+
+Examples: 
+
+Let set A = {2, 4, 5, 6}
+and set B = {7, 8, 9, 10} 
+Set A and set B are said to be disjoint sets as their intersection is null. 
+They do not have any common elements in between them. 
+
+Python isdisjoint()  Syntax
+set1.isdisjoint(set2)
+
+
+python isdisjoint() Parameters
+The isdisjoint() Python method takes only a single argument. 
+It can also take an iterable (list, tuple, dictionary, and string) to disjoint(). 
+The isdisjoint() method will automatically convert iterables to set and checks whether the sets are disjoint or not.
+
+Python isdisjoint() Return Value
+returns Trueif the two sets are disjoint. 
+returns Falseif the twos sets are not disjoint.
+
+Working set isdisjoin()
+
+
+# Python3 program for isdisjoint() function
+set1 = {2, 4, 5, 6}
+set2 = {7, 8, 9, 10}
+set3 = {1, 2}
+
+# checking of disjoint of two sets
+print("set1 and set2 are disjoint?",
+	set1.isdisjoint(set2))
+
+print("set1 and set3 are disjoint?",
+	set1.isdisjoint(set3))
+
+Output: 
+
+set1 and set2 are disjoint? True
+set1 and set3 are disjoint? False
+
+
+Python isdisjoint() with Other Iterables as arguments
+
+# Set
+A = {2, 4, 5, 6}
+
+# List
+lis = [1, 2, 3, 4, 5]
+
+# Dictionary dict, Set is formed on Keys
+dict = {1: 'Apple', 2: 'Orage'}
+
+# Dictionary dict2
+dict2 = {'Apple': 1, 'Orage': 2}
+
+print("Set A and List lis disjoint?", A.isdisjoint(lis))
+print("Set A and dict are disjoint?", A.isdisjoint(dict))
+print("Set A and dict2 are disjoint?", A.isdisjoint(dict2))
+
+
+Output:
+
+Set A and List lis disjoint? False
+Set A and dict are disjoint? False
+Set A and dict2 are disjoint? True
+
+
+issubset() in python
+
+
+Python set issubset() method returns True if all elements of a set A are present in another set B which is passed 
+as an argument and returns false if all elements not present.
+
+Python set issubset() Syntax:
+A.issubset(B)
+checks whether A is a subset of B or not.
+Python set isubset() Return:
+returns true if A is a subset of B otherwise false.
+
+# Python program to demonstrate working of
+# issubset().
+
+A = {4, 1, 3, 5}
+B = {6, 0, 4, 1, 5, 0, 3, 5}
+
+# Returns True
+print(A.issubset(B))
+
+# Returns False
+# B is not subset of A
+print(B.issubset(A))
+
+
+Output: 
+
+True
+False
+
+
+Working with three-set using issubset()
+
+# Another Python program to demonstrate working
+# of issubset().
+A = {1, 2, 3}
+B = {1, 2, 3, 4, 5}
+C = {1, 2, 4, 5}
+
+# Returns True
+print(A.issubset(B))
+
+# Returns False
+# B is not subset of A
+print(B.issubset(A))
+
+# Returns False
+print(A.issubset(C))
+
+# Returns True
+print(C.issubset(B))
+
+
+Output: 
+
+True
+False
+False
+True
+
+
+
+issuperset() in Python
+
+Difficulty Level : Easy
+Last Updated : 05 Oct, 2021
+Python set issuperset() method returns True if all elements of a set A occupies set B which is passed 
+as an argument and returns false if all elements of B are not present in A. 
+This means if A is a superset of B then it returns true; else False
+
+Python issuperset() Syntax: 
+A.issuperset(B)
+checks whether A is a superset of B or not.
+Python issuperset() Returns:
+True if A is a superset of B; otherwise false.
+
+
+Working of issubset() with two sets
+
+# Python program to demonstrate working of
+# issuperset().
+
+A = {4, 1, 3, 5}
+B = {6, 0, 4, 1, 5, 0, 3, 5}
+
+print("A.issuperset(B) : ", A.issuperset(B))
+
+# B is superset of A
+print("B.issuperset(A) : ", B.issuperset(A))
+
+
+Output: 
+
+A.issuperset(B) :  False
+B.issuperset(A) :  True
+
+Working of issubset() with three sets
+
+# Python program to demonstrate working
+# of issuperset().
+
+A = {1, 2, 3}
+B = {1, 2, 3, 4, 5}
+C = {1, 2, 4, 5}
+
+print("A.issuperset(B) : ", A.issuperset(B))
+print("B.issuperset(A) : ", B.issuperset(A))
+print("A.issuperset(C) : ", A.issuperset(C))
+print("C.issuperset(B) : ", C.issuperset(B))
+
+Output: 
+
+A.issuperset(B) :  False
+B.issuperset(A) :  True
+A.issuperset(C) :  False
+C.issuperset(B) :  False
+
+
+Python Set | pop()
+
+This in-built function of Python helps to pop out elements from a set just like the principle used in the concept while implementing Stack. 
+This method removes a top element from the set but not the random element and returns the removed element. 
+
+We can verify this by printing the set before using the pop() method.
+
+Syntax: 
+
+# Pops a First element from S
+# and returns it.
+S.pop()
+
+
+# Python code to illustrate pop() method
+
+S = {"ram", "rahim", "ajay", "rishav", "aakash"}
+
+# Print the set before using pop() method
+# First element after printing the set will be popped out
+print(S)
+
+# Popping three elements and printing them
+print(S.pop())
+print(S.pop())
+print(S.pop())
+
+# The updated set
+print("Updated set is", S)
+
+
+Output: 
+
+rishav
+ram
+rahim
+Updated set is {'aakash', 'ajay'}
+
+
+Python Set symmetric_difference()
+
+The symmetric difference of two sets set1 and set2 is the set of elements which are in either of the sets set1 or set2 but not in both.
+
+Syntax :
+
+set1_name.symmetric_difference(set2_name) 
+
+
+Parameters :
+It only takes a single set as the parameter. If a list, tuple or dictionary is passed it converts it a set and performs the task.
+
+Return value :
+
+Returns a set which is the symmetric difference between the two sets. 
+
+
+# Python program to demonstrate the use of
+# of symmetric_difference() method
+
+
+list1 = [1, 2, 3]
+list2 = [2, 3, 4]
+list3 = [3, 4, 5]
+
+# Convert list to sets
+set1 = set(list1)
+set2 = set(list2)
+
+# Prints the symmetric difference when
+# set is passed as a parameter
+print(set1.symmetric_difference(set2))
+
+# Prints the symmetric difference when list is
+# passed as a parameter by converting it to a set
+print(set2.symmetric_difference(list3))
+
+
+Output :
+
+{1, 4}
+{2, 5}
+
+
+
+Python set symmetric_difference_update()
+
+The symmetric difference of two sets is the set of elements which are in either of the sets but not in both of them.
+
+Syntax: 
+A.symmetric_difference_update(B) 
+Parameters: 
+The symmetric_difference takes a single “iterable” as an argument. Iterable should contain hashable object.
+Returns: 
+This method returns None (which indicates absence of a return value). 
+It only updates the set calling symmetric_difference_update() with the symmetric difference of sets.
+
+
+# Python code to demonstrate working of
+# symmetric_difference_update()
+
+A = {'p', 'a', 'w', 'a', 'n'}
+B = {'r', 'a', 'o', 'n', 'e'}
+
+# result is always none.
+result = A.symmetric_difference_update(B)
+
+print('A = ', A)
+print('B = ', B)
+print('result = ', result)
+
+
+Output: 
+ 
+
+('A = ', set(['e', 'o', 'p', 'r', 'w']))
+('B = ', set(['a', 'r', 'e', 'o', 'n']))
+('result = ', None)
+
+
+# Python code to demonstrate working of
+# symmetric_difference_update()
+
+A = {'s', 'u', 'n', 'n', 'y'}
+B = {'b', 'u', 'n', 'n', 'y'}
+
+# result is always none.
+result = A.symmetric_difference_update(B)
+
+print('A = ', A)
+print('B = ', B)
+print('result = ', result)
+
+Output: 
+ 
+
+('A = ', set(['s', 'b']))
+('B = ', set(['y', 'b', 'u', 'n']))
+('result = ', None)
+
+
+Union() function in Python
+
+Python set Union() function returns a new set which contains all the items from the original set.
+
+Union of two given sets is the smallest set which contains all the elements of both the sets. 
+Union of two given sets A and B is a set which consists of all the elements of A and all the elements of B such that no element is repeated.
+
+Python set Union() Syntax:
+set1.union(set2, set3, set4….) 
+
+In parameters, any number of sets can be given
+
+ Python set Union() Return value:
+The union() function returns a set, which has the union of all sets(set1, set2, set3…) with set1. 
+It returns a copy of set1 only if no parameter is passed. 
+
+# Python3 program for union() function
+
+set1 = {2, 4, 5, 6}
+set2 = {4, 6, 7, 8}
+set3 = {7, 8, 9, 10}
+
+# union of two sets
+print("set1 U set2 : ", set1.union(set2))
+
+# union of three sets
+print("set1 U set2 U set3 :", set1.union(set2, set3))
+
+
+Output: 
+
+set1 U set2 :  {2, 4, 5, 6, 7, 8}
+set1 U set2 U set3 : {2, 4, 5, 6, 7, 8, 9, 10}
+
+We can use “|” operator to find the union of the sets.
+
+# Python3 program for union with | operator
+
+set1 = {2, 4, 5, 6}
+set2 = {4, 6, 7, 8}
+set3 = {7, 8, 9, 10}
+
+# union of two sets
+print("set1 U set2 : ", set1 | set2)
+
+# union of three sets
+print("set1 U set2 U set3 :", set1 |set2 | set3)
+
+Output:
+
+set1 U set2 :  {2, 4, 5, 6, 7, 8}
+set1 U set2 U set3 : {2, 4, 5, 6, 7, 8, 9, 10}
+
+
+Python Set | update()
+
+
+Python update() function in set adds elements from a set (passed as an argument) to the set. 
+
+Syntax :  set1.update(set2) 
+
+Here set1 is the set in which set2 will be added.
+
+Parameters : Update() method takes only a single argument. 
+The single argument can be a set, list, tuples or a dictionary. 
+It automatically converts into a set and adds to the set. 
+
+Return value : This method adds set2 to set1 and returns nothing. 
+
+
+# Python program to demonstrate the
+# use of update() method
+
+list1 = [1, 2, 3]
+list2 = [5, 6, 7]
+list3 = [10, 11, 12]
+
+# Lists converted to sets
+set1 = set(list2)
+set2 = set(list1)
+
+# Update method
+set1.update(set2)
+
+# Print the updated set
+print(set1)
+
+# List is passed as an parameter which
+# gets automatically converted to a set
+set1.update(list3)
+print(set1)
+
+
+Output : 
+
+{1, 2, 3, 5, 6, 7}
+{1, 2, 3, 5, 6, 7, 10, 11, 12}
+
+
+
+Python set update element in set
+
+# Python program to demonstrate the
+# use of update() method
+
+list1 = [1, 2, 3, 4]
+list2 = [1, 4, 2, 3, 5]
+alphabet_set = {'a', 'b', 'c'}
+
+# lists converted to sets
+set1 = set(list2)
+set2 = set(list1)
+
+# Update method
+set1.update(set2)
+
+# Print the updated set
+print(set1)
+
+set1.update(alphabet_set)
+print(set1)
+
+Output : 
+
+{1, 2, 3, 4, 5}
+{1, 2, 3, 4, 5, 'c', 'b', 'a'}
