@@ -1,0 +1,601 @@
+String Programs:
+=====================
+
+# Python program to demonstrate
+# symmetry and palindrome of the
+# string
+
+
+# Function to check whether the
+# string is palindrome or not
+def palindrome(a):
+
+	# finding the mid, start
+	# and last index of the string
+	mid = (len(a)-1)//2	 #you can remove the -1 or you add <= sign in line 21
+	start = 0			 #so that you can compare the middle elements also.
+	last = len(a)-1
+	flag = 0
+
+	# A loop till the mid of the
+	# string
+	while(start <= mid):
+
+		# comparing letters from right
+		# from the letters from left
+		if (a[start]== a[last]):
+			
+			start += 1
+			last -= 1
+			
+		else:
+			flag = 1
+			break;
+			
+	# Checking the flag variable to
+	# check if the string is palindrome
+	# or not
+	if flag == 0:
+		print("The entered string is palindrome")
+	else:
+		print("The entered string is not palindrome")
+		
+# Function to check whether the
+# string is symmetrical or not	
+def symmetry(a):
+	
+	n = len(a)
+	flag = 0
+	
+	# Check if the string's length
+	# is odd or even
+	if n%2:
+		mid = n//2 +1
+	else:
+		mid = n//2
+		
+	start1 = 0
+	start2 = mid
+	
+	while(start1 < mid and start2 < n):
+		
+		if (a[start1]== a[start2]):
+			start1 = start1 + 1
+			start2 = start2 + 1
+		else:
+			flag = 1
+			break
+	
+	# Checking the flag variable to
+	# check if the string is symmetrical
+	# or not
+	if flag == 0:
+		print("The entered string is symmetrical")
+	else:
+		print("The entered string is not symmetrical")
+		
+# Driver code
+string = 'amaama'
+palindrome(string)
+symmetry(string)
+
+
+Output
+The entered string is palindrome
+The entered string is symmetrical
+
+
+# Python program to demonstrate
+# symmetry and palindrome of the
+# string
+
+
+# Function to check whether the
+# string is palindrome or not
+string = 'amaama'
+half = int(len(string) / 2)
+
+if len(string) % 2 == 0: # even
+	first_str = string[:half]
+	second_str = string[half:]
+else: # odd
+	first_str = string[:half]
+	second_str = string[half+1:]
+
+# symmetric
+if first_str == second_str:
+	print(string, 'string is symmertical')
+else:
+	print(string, 'string is not symmertical')
+
+# palindrome
+if first_str == second_str[::-1]: # ''.join(reversed(second_str)) [slower]
+	print(string, 'string is palindrome')
+else:
+	print(string, 'string is not palindrome')
+	
+	
+
+Output
+amaama string is symmertical
+amaama string is palindrome
+
+
+# Function to reverse words of string
+
+def rev_sentence(sentence):
+
+	# first split the string into words
+	words = sentence.split(' ')
+
+	# then reverse the split string list and join using space
+	reverse_sentence = ' '.join(reversed(words))
+
+	# finally return the joined string
+	return reverse_sentence
+
+if __name__ == "__main__":
+	input = 'geeks quiz practice code'
+	print (rev_sentence(input))
+
+
+Output:
+
+code practice quiz geeks
+
+
+
+
+# Python code to demonstrate
+# method to remove i'th character
+# using slice + concatenation
+
+# Initializing String
+test_str = "GeeksForGeeks"
+
+# Printing original string
+print ("The original string is : " + test_str)
+
+# Removing char at pos 3
+# using slice + concatenation
+new_str = test_str[:2] + test_str[3:]
+
+# Printing string after removal
+# removes ele. at 3rd index
+print ("The string after removal of i'th character : " + new_str)
+
+
+Output :
+
+The original string is : GeeksForGeeks
+The string after removal of i'th character : GeksForGeeks
+
+
+
+Using str.join() and list comprehension
+In this method, each element of string is first converted as each element of list, 
+and then each of them is joined to form a string except the specified index
+
+# Python code to demonstrate
+# method to remove i'th character
+# using join() + list comprehension
+
+# Initializing String
+test_str = "GeeksForGeeks"
+
+# Printing original string
+print ("The original string is : " + test_str)
+
+# Removing char at pos 3
+# using join() + list comprehension
+new_str = ''.join([test_str[i] for i in range(len(test_str)) if i != 2])
+
+# Printing string after removal
+# removes ele. at 3rd index
+print ("The string after removal of i'th character : " + new_str)
+
+
+Output :
+
+The original string is : GeeksForGeeks
+The string after removal of i'th character : GeksForGeeks
+
+
+
+# Python code to demonstrate string length
+# using len
+
+str = "geeks"
+print(len(str))
+
+
+Output:
+5
+
+
+
+# Python code to demonstrate string length
+# using for loop
+
+# Returns length of string
+def findLen(str):
+	counter = 0	
+	for i in str:
+		counter += 1
+	return counter
+
+
+str = "geeks"
+print(findLen(str))
+
+
+
+Output:
+5
+
+
+
+# Python code to demonstrate string length
+# using while loop.
+
+# Returns length of string
+def findLen(str):
+	counter = 0
+	while str[counter:]:
+		counter += 1
+	return counter
+
+str = "geeks"
+print(findLen(str))
+
+
+Output:
+5
+
+
+
+# Python code to demonstrate string length
+# using join and count
+
+# Returns length of string
+def findLen(str):
+	if not str:
+		return 0
+	else:
+		some_random_str = 'py'
+		return ((some_random_str).join(str)).count(some_random_str) + 1
+
+str = "geeks"
+print(findLen(str))
+
+Output:
+5
+
+
+Python – Avoid Spaces in string length
+
+
+Using isspace() + sum()
+
+In this, we check for each character to be equal not to space() using isspace() and not operator, sum() is used to check frequency.
+
+# Python3 code to demonstrate working of
+# Avoid Spaces in Characters Frequency
+# Using isspace() + sum()
+
+# initializing string
+test_str = 'geeksforgeeks 33 is best'
+
+# printing original string
+print("The original string is : " + str(test_str))
+
+# isspace() checks for space
+# sum checks count
+res = sum(not chr.isspace() for chr in test_str)
+	
+# printing result
+print("The Characters Frequency avoiding spaces : " + str(res))
+
+
+Output
+The original string is : geeksforgeeks 33 is   best
+The Characters Frequency avoiding spaces : 21
+
+
+Using sum() + len() + map() + split()
+
+In this, we perform split on spaces and extract words without spaces, 
+then the length() of is computed using len() extended to each word using map(), 
+the summation of all lengths computed using sum() is final result.
+
+
+
+# Python3 code to demonstrate working of
+# Avoid Spaces in Characters Frequency
+# Using sum() + len() + map() + split()
+
+# initializing string
+test_str = 'geeksforgeeks 33 is best'
+
+# printing original string
+print("The original string is : " + str(test_str))
+
+# len() finds individual word Frequency
+# sum() extracts final Frequency
+res = sum(map(len, test_str.split()))
+	
+# printing result
+print("The Characters Frequency avoiding spaces : " + str(res))
+
+
+Output
+The original string is : geeksforgeeks 33 is   best
+The Characters Frequency avoiding spaces : 21
+
+
+program to print even length words in a string
+
+
+# Python3 program to print
+# even length words in a string
+
+def printWords(s):
+	
+	# split the string
+	s = s.split(' ')
+	
+	# iterate in words of string
+	for word in s:
+		
+		# if length is even
+		if len(word)%2==0:
+			print(word)
+
+
+# Driver Code
+s = "i am muskan"
+printWords(s)
+
+Output:
+am
+muskan
+
+
+Python program to check if a string has at least one letter and one number
+
+def checkString(str):
+
+	# initializing flag variable
+	flag_l = False
+	flag_n = False
+	
+	# checking for letter and numbers in
+	# given string
+	for i in str:
+	
+		# if string has letter
+		if i.isalpha():
+			flag_l = True
+
+		# if string has number
+		if i.isdigit():
+			flag_n = True
+	
+	# returning and of flag
+	# for checking required condition
+	return flag_l and flag_n
+
+
+# driver code
+print(checkString('thishasboth29'))
+print(checkString('geeksforgeeks'))
+
+
+Output:
+
+True
+False
+
+
+Python – Uppercase Half String
+
+Using upper() + loop + len()
+
+In this, we compute the half index, and then perform upper() to only those characters which lie in other half of string.
+
+
+# Python3 code to demonstrate working of
+# Uppercase Half String
+# Using upper() + loop + len()
+
+# initializing string
+test_str = 'geeksforgeeks'
+
+# printing original string
+print("The original string is : " + str(test_str))
+
+# computing half index
+hlf_idx = len(test_str) // 2
+
+res = ''
+for idx in range(len(test_str)):
+	
+	# uppercasing later half
+	if idx >= hlf_idx:
+	res += test_str[idx].upper()
+	else :
+	res += test_str[idx]
+		
+# printing result
+print("The resultant string : " + str(res))
+
+
+Output
+The original string is : geeksforgeeks
+The resultant string : geeksfORGEEKS
+
+
+Using list comprehension + join() + upper()
+
+This is similar to above method, just the task is performed in shorthand manner using list comprehension.
+
+
+# Python3 code to demonstrate working of
+# Uppercase Half String
+# Using list comprehension + join() + upper()
+
+# initializing string
+test_str = 'geeksforgeeks'
+
+# printing original string
+print("The original string is : " + str(test_str))
+
+# computing half index
+hlf_idx = len(test_str) // 2
+
+# join() used to create result string
+res = ''.join([test_str[idx].upper() if idx >= hlf_idx else test_str[idx]
+		for idx in range(len(test_str)) ])
+		
+# printing result
+print("The resultant string : " + str(res))
+
+
+Output
+The original string is : geeksforgeeks
+The resultant string : geeksfORGEEKS
+
+
+
+Python program to capitalize the first and last character of each word in a string
+
+# Python program to capitalize
+# first and last character of
+# each word of a String
+
+
+# Function to do the same
+def word_both_cap(str):
+	
+	#lamda function for capitalizing the
+	# first and last letter of words in
+	# the string
+	return ' '.join(map(lambda s: s[:-1]+s[-1].upper(),
+						s.title().split()))
+	
+	
+# Driver's code
+s = "welcome to geeksforgeeks"
+print("String before:", s)
+print("String after:", word_both_cap(str))
+
+
+Output:
+
+String before: welcome to geeksforgeeks
+String after: WelcomE TO GeeksforgeekS
+
+
+Python | Count the Number of matching characters in a pair of string
+
+
+# Python code to count number of matching
+# characters in a pair of strings
+
+# count function
+def count(str1, str2):
+	c, j = 0, 0
+	
+	# loop executes till length of str1 and
+	# stores value of str1 character by character
+	# and stores in i at each iteration.
+	for i in str1:	
+		
+		# this will check if character extracted from
+		# str1 is present in str2 or not(str2.find(i)
+		# return -1 if not found otherwise return the
+		# starting occurrence index of that character
+		# in str2) and j == str1.find(i) is used to
+		# avoid the counting of the duplicate characters
+		# present in str1 found in str2
+		if str2.find(i)>= 0 and j == str1.find(i):
+			c += 1
+		j += 1
+	print ('No. of matching characters are : ', c)
+
+# Main function
+def main():
+	str1 ='aabcddekll12@' # first string
+	str2 ='bb2211@55k' # second string
+	count(str1, str2) # calling count function
+
+# Driver Code
+if __name__=="__main__":
+	main()
+
+
+Output :
+
+No. of matching characters are : 5
+
+
+# Python code to count number of unique matching
+# characters in a pair of strings
+
+# count function count the common unique
+# characters present in both strings .
+def count(str1 ,str2) :
+	# set of characters of string1
+	set_string1 = set(str1)
+
+	# set of characters of string2
+	set_string2 = set(str2)
+
+	# using (&) intersection mathematical operation on sets
+	# the unique characters present in both the strings
+	# are stored in matched_characters set variable
+	matched_characters = set_string1 & set_string2
+
+	# printing the length of matched_characters set
+	# gives the no. of matched characters
+	print("No. of matching characters are : " + str(len(matched_characters)) )
+
+
+# Driver code
+if __name__ == "__main__" :
+
+	str1 = 'aabcddekll12@' # first string
+	str2 = 'bb2211@55k'	 # second string
+
+	# call count function
+	count( str1 , str2 )
+	
+Output :
+No. of matching characters are : 5
+
+
+# Count the Number of matching characters in
+# a pair of string
+import re
+ip1 = "geeks"
+ip2 = "geeksonly"
+
+c = 0
+for i in ip1:
+	if re.search(i,ip2):
+		c=c+1
+print("No. of matching characters are ", c)
+
+
+
+Output :
+No. of matching characters are : 5
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,524 @@
+Tuple Examples
+===============
+
+#Using getsizeof() function:
+
+#The getsizeof() function belongs to the python’s sys module. It has been implemented in the below example.
+import sys
+
+# sample Tuples
+Tuple1 = ("A", 1, "B", 2, "C", 3)
+Tuple2 = ("Geek1", "Raju", "Geek2", "Nikhil", "Geek3", "Deepanshu")
+Tuple3 = ((1, "Lion"), ( 2, "Tiger"), (3, "Fox"), (4, "Wolf"))
+
+# print the sizes of sample Tuples
+print("Size of Tuple1: " + str(sys.getsizeof(Tuple1)) + "bytes")
+print("Size of Tuple2: " + str(sys.getsizeof(Tuple2)) + "bytes")
+print("Size of Tuple3: " + str(sys.getsizeof(Tuple3)) + "bytes")
+
+Output:
+
+Size of Tuple1: 96bytes
+Size of Tuple2: 96bytes
+Size of Tuple3: 80bytes
+
+Note:The sys.getsizeof() function includes the marginal space usage, which includes the garbage collection overhead for the object. 
+Meaning it returns the total space occupied by the object in addition to the garbage collection overhead for the spaces being used.
+
+#Using inbuilt __sizeof__() method:
+
+#Python also has an inbuilt __sizeof__() method to determine the space allocation of an object without any additional garbage value. 
+#It has been implemented in the below example.
+
+# sample Tuples
+Tuple1 = ("A", 1, "B", 2, "C", 3)
+Tuple2 = ("Geek1", "Raju", "Geek2", "Nikhil", "Geek3", "Deepanshu")
+Tuple3 = ((1, "Lion"), ( 2, "Tiger"), (3, "Fox"), (4, "Wolf"))
+
+# print the sizes of sample Tuples
+print("Size of Tuple1: " + str(Tuple1.__sizeof__()) + "bytes")
+print("Size of Tuple2: " + str(Tuple2.__sizeof__()) + "bytes")
+print("Size of Tuple3: " + str(Tuple3.__sizeof__()) + "bytes")
+
+Output:
+
+Size of Tuple1: 72bytes
+Size of Tuple2: 72bytes
+Size of Tuple3: 56bytes
+
+#Using sorted() + loop 
+#The combination of above functionalities can be used to solve this problem. 
+#In this, we perform the sort operation using sorted(), and the problem of extraction of max and min K elements using loop.
+
+# Python3 code to demonstrate working of
+# Maximum and Minimum K elements in Tuple
+# Using sorted() + loop
+
+# initializing tuple
+test_tup = (5, 20, 3, 7, 6, 8)
+
+# printing original tuple
+print("The original tuple is : " + str(test_tup))
+
+# initializing K
+K = 2
+
+# Maximum and Minimum K elements in Tuple
+# Using sorted() + loop
+res = []
+test_tup = list(sorted(test_tup))
+
+for idx, val in enumerate(test_tup):
+	if idx < K or idx >= len(test_tup) - K:
+		res.append(val)
+res = tuple(res)
+
+# printing result
+print("The extracted values : " + str(res))
+
+Output : 
+The original tuple is : (5, 20, 3, 7, 6, 8)
+The extracted values : (3, 5, 8, 20)
+
+
+#Using list slicing + sorted() 
+#The combination of above functions can be used to solve this problem. 
+#In this, we perform the task of max, min extraction using slicing rather than brute force loop logic.
+
+# Python3 code to demonstrate working of
+# Maximum and Minimum K elements in Tuple
+# Using slicing + sorted()
+
+# initializing tuple
+test_tup = (5, 20, 3, 7, 6, 8)
+
+# printing original tuple
+print("The original tuple is : " + str(test_tup))
+
+# initializing K
+K = 2
+
+# Maximum and Minimum K elements in Tuple
+# Using slicing + sorted()
+test_tup = list(test_tup)
+temp = sorted(test_tup)
+res = tuple(temp[:K] + temp[-K:])
+
+# printing result
+print("The extracted values : " + str(res))
+
+Output : 
+The original tuple is : (5, 20, 3, 7, 6, 8)
+The extracted values : (3, 5, 8, 20)
+
+
+We can use list comprehension to create a list of tuples. 
+The first element will be simply an element and second element will be cube of that number.
+
+# Python program to create a list of tuples
+# from given list having number and
+# its cube in each tuple
+
+# creating a list
+list1 = [1, 2, 5, 6]
+
+# using list comprehension to iterate each
+# values in list and create a tuple as specified
+res = [(val, pow(val, 3)) for val in list1]
+
+# print the result
+print(res)
+
+
+Output:
+
+[(1, 1), (2, 8), (5, 125), (6, 216)]
+
+
+#Using += operator [list + tuple] 
+This operator can be used to join a list with a tuple. Internally its working is similar to that of list.extend(), 
+which can have any iterable as its argument, tuple in this case.
+
+# Python3 code to demonstrate working of
+# Adding Tuple to List and vice - versa
+# Using += operator (list + tuple)
+
+# initializing list
+test_list = [5, 6, 7]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# initializing tuple
+test_tup = (9, 10)
+
+# Adding Tuple to List and vice - versa
+# Using += operator (list + tuple)
+test_list += test_tup
+
+# printing result
+print("The container after addition : " + str(test_list))
+
+
+Output : 
+The original list is : [5, 6, 7]
+The container after addition : [5, 6, 7, 9, 10]
+
+
+#Using tuple(), data type conversion [tuple + list] 
+The following technique is used to add list to a tuple. 
+The tuple has to converted to list and list has to be added, at last resultant is converted to tuple.
+
+# Python3 code to demonstrate working of
+# Adding Tuple to List and vice - versa
+# Using tuple(), data type conversion [tuple + list]
+
+# initializing list
+test_list = [5, 6, 7]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# initializing tuple
+test_tup = (9, 10)
+
+# Adding Tuple to List and vice - versa
+# Using tuple(), data type conversion [tuple + list]
+res = tuple(list(test_tup) + test_list)
+
+# printing result
+print("The container after addition : " + str(res))
+
+
+Output : 
+The original list is : [5, 6, 7]
+The container after addition : (9, 10, 5, 6, 7)
+
+
+#Using enumerate() + loop
+The combination of above functions offer brute force way to solve this problem. 
+In this, we use enumerate() to monitor index and abs() to keep the minimum difference updated checked for each element over a loop.
+
+# Python3 code to demonstrate working of
+# Closest Pair to Kth index element in Tuple
+# Using enumerate() + loop
+
+# initializing list
+test_list = [(3, 4), (78, 76), (2, 3), (9, 8), (19, 23)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# initializing tuple
+tup = (17, 23)
+
+# initializing K
+K = 1
+
+# Closest Pair to Kth index element in Tuple
+# Using enumerate() + loop
+min_dif, res = 999999999, None
+for idx, val in enumerate(test_list):
+	dif = abs(tup[K - 1] - val[K - 1])
+	if dif < min_dif:
+		min_dif, res = dif, idx
+
+# printing result
+print("The nearest tuple to Kth index element is : " + str(test_list[res]))
+
+
+Output :
+The original list is : [(3, 4), (78, 76), (2, 3), (9, 8), (19, 23)]
+The nearest tuple to Kth index element is : (19, 23)
+
+
+#Using min() + lambda
+The combination of above functions offer shorthand to solve this problem. 
+In this, we use min() to find minimum element difference and lambda function is used to perform iterations and computations.
+
+# Python3 code to demonstrate working of
+# Closest Pair to Kth index element in Tuple
+# Using min() + lambda
+
+# initializing list
+test_list = [(3, 4), (78, 76), (2, 3), (9, 8), (19, 23)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# initializing tuple
+tup = (17, 23)
+
+# initializing K
+K = 1
+
+# Closest Pair to Kth index element in Tuple
+# Using min() + lambda
+res = min(range(len(test_list)), key = lambda sub: abs(test_list[sub][K - 1] - tup[K - 1]))
+
+# printing result
+print("The nearest tuple to Kth index element is : " + str(test_list[res]))
+
+
+Output :
+The original list is : [(3, 4), (78, 76), (2, 3), (9, 8), (19, 23)]
+The nearest tuple to Kth index element is : (19, 23)
+
+
+#Using loop
+This is brute way in which this task can be done. In this, we create new tuple, if we find no occurrence of similar tuple values previously. 
+Slicing is used to add rest of elements to created tuple.
+
+# Python3 code to demonstrate working of
+# Join Tuples if similar initial element
+# Using loop
+
+# initializing list
+test_list = [(5, 6), (5, 7), (6, 8), (6, 10), (7, 13)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# Join Tuples if similar initial element
+# Using loop
+res = []
+for sub in test_list:										
+	if res and res[-1][0] == sub[0]:			
+		res[-1].extend(sub[1:])						
+	else:
+		res.append([ele for ele in sub])	
+res = list(map(tuple, res))
+
+# printing result
+print("The extracted elements : " + str(res))
+
+Output :
+The original list is : [(5, 6), (5, 7), (6, 8), (6, 10), (7, 13)]
+The extracted elements : [(5, 6, 7), (6, 8, 10), (7, 13)]
+
+
+#Using defaultdict() + loop
+The combination of above functions can be used to solve this problem. The advantages it offers from above method are, 
+that it reduces one check of initializing new key, and also works well even if similar elements are not consecutive.
+
+# Python3 code to demonstrate working of
+# Join Tuples if similar initial element
+# Using defaultdict() + loop
+from collections import defaultdict
+
+# initializing list
+test_list = [(5, 6), (5, 7), (6, 8), (6, 10), (7, 13)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# Join Tuples if similar initial element
+# Using defaultdict() + loop
+mapp = defaultdict(list)
+for key, val in test_list:
+	mapp[key].append(val)
+res = [(key, *val) for key, val in mapp.items()]
+
+# printing result
+print("The extracted elements : " + str(res))
+
+Output :
+The original list is : [(5, 6), (5, 7), (6, 8), (6, 10), (7, 13)]
+The extracted elements : [(5, 6, 7), (6, 8, 10), (7, 13)]
+
+
+#Using list comprehension
+This is one of the ways in which this task can be performed. In this, 
+we perform task of forming one index combination in one pass, in other pass change the index, and add to the initial result list.
+
+# Python3 code to demonstrate working of
+# All pair combinations of 2 tuples
+# Using list comprehension
+
+# initializing tuples
+test_tuple1 = (4, 5)
+test_tuple2 = (7, 8)
+
+# printing original tuples
+print("The original tuple 1 : " + str(test_tuple1))
+print("The original tuple 2 : " + str(test_tuple2))
+
+# All pair combinations of 2 tuples
+# Using list comprehension
+res = [(a, b) for a in test_tuple1 for b in test_tuple2]
+res = res + [(a, b) for a in test_tuple2 for b in test_tuple1]
+
+# printing result
+print("The filtered tuple : " + str(res))
+
+
+Output :
+The original tuple 1 : (4, 5)
+The original tuple 2 : (7, 8)
+The filtered tuple : [(4, 7), (4, 8), (5, 7), (5, 8), (7, 4), (7, 5), (8, 4), (8, 5)]
+
+
+#Using chain() + product()
+The combination of above functions provide yet another way to solve this problem. In this, 
+we perform task of pair creation using product() and chain() is used to add both the results from product() used twice.
+
+# Python3 code to demonstrate working of
+# All pair combinations of 2 tuples
+# Using chain() + product()
+from itertools import chain, product
+
+# initializing tuples
+test_tuple1 = (4, 5)
+test_tuple2 = (7, 8)
+
+# printing original tuples
+print("The original tuple 1 : " + str(test_tuple1))
+print("The original tuple 2 : " + str(test_tuple2))
+
+# All pair combinations of 2 tuples
+# Using chain() + product()
+res = list(chain(product(test_tuple1, test_tuple2), product(test_tuple2, test_tuple1)))
+
+# printing result
+print("The filtered tuple : " + str(res))
+
+
+Output :
+The original tuple 1 : (4, 5)
+The original tuple 2 : (7, 8)
+The filtered tuple : [(4, 7), (4, 8), (5, 7), (5, 8), (7, 4), (7, 5), (8, 4), (8, 5)]
+
+
+Using list comprehension
+
+This is one of the ways in which this task can be performed. 
+In this, we iterate for all elements in loop and perform the required task of removal of K length elements using conditions.
+
+# Python3 code to demonstrate working of
+# Remove Tuples of Length K
+# Using list comprehension
+
+# initializing list
+test_list = [(4, 5), (4, ), (8, 6, 7), (1, ), (3, 4, 6, 7)]
+
+# printing original list
+print("The original list : " + str(test_list))
+
+# initializing K
+K = 1
+
+# 1 liner to perform task
+# filter just lengths other than K
+# len() used to compute length
+res = [ele for ele in test_list if len(ele) != K]
+
+# printing result
+print("Filtered list : " + str(res))
+
+
+Output
+The original list : [(4, 5), (4, ), (8, 6, 7), (1, ), (3, 4, 6, 7)]
+Filtered list : [(4, 5), (8, 6, 7), (3, 4, 6, 7)]
+
+
+Using the Bubble Sort
+
+Using the technique of Bubble Sort to we can perform the sorting. Note that each tuple is an element in the given list. 
+Access the second element of each tuple using the nested loops. 
+This performs the in-place method of sorting. The time complexity is similar to the Bubble Sort i.e. O(n^2).
+
+# Python program to sort a list of tuples by the second Item
+
+# Function to sort the list of tuples by its second item
+def Sort_Tuple(tup):
+	
+	# getting length of list of tuples
+	lst = len(tup)
+	for i in range(0, lst):
+		
+		for j in range(0, lst-i-1):
+			if (tup[j][1] > tup[j + 1][1]):
+				temp = tup[j]
+				tup[j]= tup[j + 1]
+				tup[j + 1]= temp
+	return tup
+
+# Driver Code
+tup =[('for', 24), ('is', 10), ('Geeks', 28),
+	('Geeksforgeeks', 5), ('portal', 20), ('a', 15)]
+		
+print(Sort_Tuple(tup))
+
+Output:
+
+[('Geeksforgeeks', 5), ('is', 10), ('a', 15), ('portal', 20), ('for', 24), ('Geeks', 28)]
+
+
+#Using sort() method
+
+While sorting via this method the actual content of the tuple is changed, 
+and just like the previous method, the in-place method of the sort is performed.
+
+# Python program to sort a list of
+# tuples by the second Item using sort()
+
+# Function to sort hte list by second item of tuple
+def Sort_Tuple(tup):
+
+	# reverse = None (Sorts in Ascending order)
+	# key is set to sort using second element of
+	# sublist lambda has been used
+	tup.sort(key = lambda x: x[1])
+	return tup
+
+# Driver Code
+tup = [('rishav', 10), ('akash', 5), ('ram', 20), ('gaurav', 15)]
+
+# printing the sorted list of tuples
+print(Sort_Tuple(tup))
+
+
+Output:
+
+[('akash', 5), ('rishav', 10), ('gaurav', 15), ('ram', 20)]
+
+
+#Using sorted() method
+
+Sorted() method sorts a list and always returns a list with the elements in a sorted manner, without modifying the original sequence. 
+It takes three parameters from which two are optional, here we tried to use all of the three:
+
+Iterable : sequence (list, tuple, string) or collection (dictionary, set, frozenset) or any other iterator that needs to be sorted.
+Key(optional) : A function that would serve as a key or a basis of sort comparison.
+Reverse(optional) : To sort this in ascending order we could have just ignored the third parameter, which we did in this program. 
+If set true, then the iterable would be sorted in reverse (descending) order, by default it is set as false.
+
+# Python program to sort a list of
+# tuples by the second Item using sorted()
+
+# Function to sort the list by second item of tuple
+def Sort_Tuple(tup):
+
+	# reverse = None (Sorts in Ascending order)
+	# key is set to sort using second element of
+	# sublist lambda has been used
+	return(sorted(tup, key = lambda x: x[1]))
+
+# Driver Code
+tup = [('rishav', 10), ('akash', 5), ('ram', 20), ('gaurav', 15)]
+
+# printing the sorted list of tuples
+print(Sort_Tuple(tup))
+
+
+Output:
+
+[('akash', 5), ('rishav', 10), ('gaurav', 15), ('ram', 20)]
+
+
+
+
+
+
+
+

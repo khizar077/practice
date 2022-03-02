@@ -1,0 +1,813 @@
+Python Dictionary Exercise
+===========================
+
+# create a list of tuples.
+test = [(1, 2), (1, 4), (3, 5), (5, 7)]
+
+# create a empty dictionary name new_dict
+new_dict = {}
+
+# a for loop to iterate the list of tuples
+for i in test:
+
+	# checking whether the dictionary
+	# has the key already.
+	# If it returns No, a new Key is created.
+	# If the key is not present the first
+	# value of the tuple is made as the key
+	if new_dict.get(i[0], 'No') == 'No':
+	
+	# THe remaining element is made
+	# as values of the key
+		new_dict[i[0]] = i[1:]
+	else:
+	# If the key is already present assign
+	# the remaining element as values to
+	# the corresponding key
+		new_dict[i[0]] = new_dict.get(i[0]) + i[1:]
+print(new_dict)
+
+
+Output
+{1: (2, 4), 3: (5,), 5: (7,)}
+
+
+# create a list of tuples
+test = [(1, 2, 3, 4, 5, 6), (1, 4),
+		(3, 5, 3, 4, 5, 6), (5, 7),
+		(5, 6), (4, 4)]
+
+# create a empty dictionary name new_dict
+new_dict = {}
+
+# a for loop to iterate the list of tuples
+for i in test:
+
+	# checking whether the dictionary
+	# has the key already.
+	# If it returns No, a new Key is created.
+	# If the key is not present the first
+	# value of the tuple is made as the key
+	if new_dict.get(i[0], 'No') == 'No':
+	
+		# THe remaining element is
+		# made as values of the key
+		new_dict[i[0]] = i[1:]
+	else:
+	
+		# If the key is already present assign
+		# the remaining element as values to
+		# the corresponding key
+		# add the values to the tuples and them
+		# convert them to list using list() function
+		new_dict[i[0]] = list(new_dict.get(i[0]) + i[1:])
+
+# if the length of value is 1,
+# it would be still as tuple,
+# so convert them as list using list() function
+for k, v in new_dict.items():
+	if len(v) == 1:
+		new_dict[k] = list(v)
+print(new_dict)
+
+
+Output
+{1: [2, 3, 4, 5, 6, 4], 3: (5, 3, 4, 5, 6), 5: [7, 6], 4: [4]}
+
+
+# create a dictionary
+# with student names as key
+# values as subject details
+data = {'manoja': [{'subject1': "java", 'marks': 98},
+				{'subject2': "PHP", 'marks': 89}],
+		'manoj': [{'subject1': "java", 'marks': 78},
+				{'subject2': "PHP", 'marks': 79}]}
+
+# get the list of data
+# using items() method
+for key, values in data.items():
+	for i in values:
+		print(key, " : ", i)
+
+
+Output:
+
+manoja  :  {'subject1': 'java', 'marks': 98}
+manoja  :  {'subject2': 'PHP', 'marks': 89}
+manoj  :  {'subject1': 'java', 'marks': 78}
+manoj  :  {'subject2': 'PHP', 'marks': 79}
+
+
+
+# create a dictionary
+# with student names as key
+# values as subject details
+data = {'manoja': [{'subject1': "java", 'marks': 98},
+				{'subject2': "PHP", 'marks': 89}],
+		'manoj': [{'subject1': "java", 'marks': 78},
+				{'subject2': "PHP", 'marks': 79}],
+		'ramya': [{'subject1': "html", 'marks': 78}]}
+
+# get the list of data
+# using items() method
+for key, values in data.items():
+	for i in values:
+		print(key, " : ", i)
+
+
+Output:
+
+manoja  :  {'subject1': 'java', 'marks': 98}
+manoja  :  {'subject2': 'PHP', 'marks': 89}
+manoj  :  {'subject1': 'java', 'marks': 78}
+manoj  :  {'subject2': 'PHP', 'marks': 79}
+ramya  :  {'subject1': 'html', 'marks': 78}
+
+
+#Python program to convert namedtuple to the dictionary
+
+# import named tuple
+from collections import namedtuple
+
+# create a named tuple named DETAILS with three columns
+DETAILS = namedtuple("DETAILS", "Name, Age, Subject")
+
+# create 5 students
+a = [DETAILS("ojaswi", 21, "python"),
+	DETAILS("sireesha", 21, "python"),
+	DETAILS("gnanesh", 23, "php"),
+	DETAILS("priyank", 21, "java"),
+	DETAILS("ojaswi", 22, "big-data")]
+
+# convert into dictionary
+# using dict method
+for i in a:
+	print(dict(i._asdict()))
+
+
+Output:
+
+{‘Name’: ‘ojaswi’, ‘Age’: 21, ‘Subject’: ‘python’}
+
+{‘Name’: ‘sireesha’, ‘Age’: 21, ‘Subject’: ‘python’}
+
+{‘Name’: ‘gnanesh’, ‘Age’: 23, ‘Subject’: ‘php’}
+
+{‘Name’: ‘priyank’, ‘Age’: 21, ‘Subject’: ‘java’}
+
+{‘Name’: ‘ojaswi’, ‘Age’: 22, ‘Subject’: ‘big-data’}
+
+
+
+# import named tuple
+from collections import namedtuple
+
+# create a nmaed tuple named DETAILS with one column
+DETAILS = namedtuple("DETAILS", "Name")
+
+# create 5 students
+a = [DETAILS("ojaswi"),
+	DETAILS("sireesha"),
+	DETAILS("gnanesh"),
+	DETAILS("priyank"),
+	DETAILS("ojaswi")]
+
+# convert into dictionary
+# using dict method
+for i in a:
+	print(dict(i._asdict()))
+
+utput:
+
+{‘Name’: ‘ojaswi’}
+
+{‘Name’: ‘sireesha’}
+
+{‘Name’: ‘gnanesh’}
+
+{‘Name’: ‘priyank’}
+
+{‘Name’: ‘ojaswi’}
+
+
+Using list() function
+We can use dictionary.values() along with list() function to get the list. Here, 
+values() method is an dictionary method used to access the values from key:value pairs and we are then converting the values to list by using list() function
+
+Syntax:
+
+list(dictionary.values())
+
+# create a dictionary
+# with student names as key
+# values as subjects
+data = {'manoja': 'java', 'tripura': 'python',
+		'manoj': 'statistics', 'manoji': 'cpp'}
+
+# get list of values
+list(data.values())
+
+Output:
+
+['java', 'python', 'statistics', 'cpp']
+
+
+using [] 
+We can use [] along with * to get all list of dictionary values. Here 
+values() is a dictionary method is used to get the values from key:value pair in the dictionary and * is used to get only 
+values instead of getting dict_values and then we are getting into a list by using list() function
+
+Syntax:
+
+[*dictionary.values()]
+
+# create a dictionary
+# with student names as key
+# values as subjects
+data = {'manoja': 'java', 'tripura': 'python',
+		'manoj': 'statistics', 'manoji': 'cpp'}
+
+# get list of values
+[*data.values()]
+
+Output:
+
+No Output( empty screen)
+
+
+Using sorted() + set comprehension + values()
+The combination of above functionalities can be used to perform this task. 
+In this, we extract all the values using values() and set comprehension is used to get unique values compiled in list.
+
+
+# Python3 code to demonstrate working of
+# Extract Unique values dictionary values
+# Using set comprehension + values() + sorted()
+
+# initializing dictionary
+test_dict = {'gfg' : [5, 6, 7, 8],
+			'is' : [10, 11, 7, 5],
+			'best' : [6, 12, 10, 8],
+			'for' : [1, 2, 5]}
+
+# printing original dictionary
+print("The original dictionary is : " + str(test_dict))
+
+# Extract Unique values dictionary values
+# Using set comprehension + values() + sorted()
+res = list(sorted({ele for val in test_dict.values() for ele in val}))
+
+# printing result
+print("The unique values list is : " + str(res))
+
+
+Output :
+The original dictionary is : {‘gfg’: [5, 6, 7, 8], ‘best’: [6, 12, 10, 8], ‘is’: [10, 11, 7, 5], ‘for’: [1, 2, 5]}
+The unique values list is : [1, 2, 5, 6, 7, 8, 10, 11, 12]
+
+
+Using chain() + sorted() + values()
+This performs the task in similar way. 
+The difference is that the task of set comprehension is performed using chain().
+
+
+# Python3 code to demonstrate working of
+# Extract Unique values dictionary values
+# Using chain() + sorted() + values()
+from itertools import chain
+
+# initializing dictionary
+test_dict = {'gfg' : [5, 6, 7, 8],
+			'is' : [10, 11, 7, 5],
+			'best' : [6, 12, 10, 8],
+			'for' : [1, 2, 5]}
+
+# printing original dictionary
+print("The original dictionary is : " + str(test_dict))
+
+# Extract Unique values dictionary values
+# Using chain() + sorted() + values()
+res = list(sorted(set(chain(*test_dict.values()))))
+
+# printing result
+print("The unique values list is : " + str(res))
+
+
+Output :
+The original dictionary is : {‘gfg’: [5, 6, 7, 8], ‘best’: [6, 12, 10, 8], ‘is’: [10, 11, 7, 5], ‘for’: [1, 2, 5]}
+The unique values list is : [1, 2, 5, 6, 7, 8, 10, 11, 12]
+
+Using Inbuilt sum() Function
+Use the sum function to find the sum of dictionary values.
+
+
+# Python3 Program to find sum of
+# all items in a Dictionary
+
+# Function to print sum
+def returnSum(myDict):
+	
+	list = []
+	for i in myDict:
+		list.append(myDict[i])
+	final = sum(list)
+	
+	return final
+
+# Driver Function
+dict = {'a': 100, 'b':200, 'c':300}
+print("Sum :", returnSum(dict))
+
+Output:
+
+Sum : 600
+
+
+
+Using For loop to iterate through values using values() function
+Iterate through each value of the dictionary using values() function and keep adding it to the sum. 
+
+# Python3 Program to find sum of
+# all items in a Dictionary
+
+# Function to print sum
+def returnSum(dict):
+	
+	sum = 0
+	for i in dict.values():
+		sum = sum + i
+	
+	return sum
+
+# Driver Function
+dict = {'a': 100, 'b':200, 'c':300}
+print("Sum :", returnSum(dict))
+
+
+
+Output:
+
+Sum : 600
+
+Using For loop to iterate through items of Dictionary
+Iterate through each item of the dictionary and simply keep adding the values to the sum variable. 
+
+
+# Python3 Program to find sum of
+# all items in a Dictionary
+
+# Function to print sum
+def returnSum(dict):
+	
+	sum = 0
+	for i in dict:
+		sum = sum + dict[i]
+	
+	return sum
+
+# Driver Function
+dict = {'a': 100, 'b':200, 'c':300}
+print("Sum :", returnSum(dict))
+
+
+Output:
+
+Sum : 600
+
+
+By using the method update() in Python, one list can be merged into another. 
+But in this, the second list is merged into the first list and no new list is created. It returns None.
+
+# Python code to merge dict using update() method
+def Merge(dict1, dict2):
+	return(dict2.update(dict1))
+	
+# Driver code
+dict1 = {'a': 10, 'b': 8}
+dict2 = {'d': 6, 'c': 4}
+
+# This return None
+print(Merge(dict1, dict2))
+
+# changes made in dict2
+print(dict2)
+
+
+Output:
+
+None
+{'c': 4, 'a': 10, 'b': 8, 'd': 6}
+
+
+Using ** in Python 
+ 
+This is generally considered a trick in Python where a single expression is used to merge two dictionaries and stored in a third dictionary. 
+The single expression is **. This does not affect the other two dictionaries. 
+** implies that an argument is a dictionary. 
+Using ** [double star] is a shortcut that allows you to pass multiple arguments to a function directly using a dictionary. 
+For more information refer **kwargs in Python. 
+Using this we first pass all the elements of the first dictionary into the third one and then pass the second dictionary into the third. 
+This will replace the duplicate keys of the first dictionary.
+
+
+# Python code to merge dict using a single
+# expression
+def Merge(dict1, dict2):
+	res = {**dict1, **dict2}
+	return res
+	
+# Driver code
+dict1 = {'a': 10, 'b': 8}
+dict2 = {'d': 6, 'c': 4}
+dict3 = Merge(dict1, dict2)
+print(dict3)
+
+
+
+Output:
+
+{'b': 8, 'a': 10, 'c': 4, 'd': 6}
+
+
+In the latest update of python now we can use “|” operator to merge two dictionaries. 
+It is a very convenient method to merge dictionaries.
+
+
+# code
+# Python code to merge dict using a single
+# expression
+def Merge(dict1, dict2):
+	res = dict1 | dict2
+	return res
+	
+# Driver code
+dict1 = {'x': 10, 'y': 8}
+dict2 = {'a': 6, 'b': 4}
+dict3 = Merge(dict1, dict2)
+print(dict3)
+
+# This code is contributed by virentanti16
+
+
+Output:
+
+{'x': 10, 'a': 6,  'b': 4, 'y': 8}
+
+
+Using list() + keys() + values()
+
+This is one of the ways in which this task can be performed. 
+In this, we extract keys and values using keys() and values(), 
+convert then to list using list() and perform append in order.
+
+
+# Python3 code to demonstrate working of
+# Append Dictionary Keys and Values ( In order ) in dictionary
+# Using values() + keys() + list()
+
+# initializing dictionary
+test_dict = {"Gfg" : 1, "is" : 3, "Best" : 2}
+
+# printing original dictionary
+print("The original dictionary is : " + str(test_dict))
+
+# + operator is used to perform adding keys and values
+res = list(test_dict.keys()) + list(test_dict.values())
+
+# printing result
+print("The ordered keys and values : " + str(res))
+
+
+
+Output
+The original dictionary is : {'Gfg': 1, 'is': 3, 'Best': 2}
+The ordered keys and values : ['Gfg', 'is', 'Best', 1, 3, 2]
+
+
+ Using chain() + keys() + values()
+
+This is one of the ways in which this task can be performed. 
+In this, we bind keys with values together in order using chain().
+
+# Python3 code to demonstrate working of
+# Append Dictionary Keys and Values ( In order ) in dictionary
+# Using chain() + keys() + values()
+from itertools import chain
+
+# initializing dictionary
+test_dict = {"Gfg" : 1, "is" : 3, "Best" : 2}
+
+# printing original dictionary
+print("The original dictionary is : " + str(test_dict))
+
+# chain() is used for concatenation
+res = list(chain(test_dict.keys(), test_dict.values()))
+
+# printing result
+print("The ordered keys and values : " + str(res))
+
+
+
+Output
+The original dictionary is : {'Gfg': 1, 'is': 3, 'Best': 2}
+The ordered keys and values : ['Gfg', 'is', 'Best', 1, 3, 2]
+
+
+ Using sorted() + loop
+The combination of above functions can be used to solve this problem. 
+In this, we initially sort all the values of keys, and then perform the keys sorting after that, in brute manner.
+
+# Python3 code to demonstrate working of
+# Sort Dictionary key and values List
+# Using loop + dictionary comprehension
+
+# initializing dictionary
+test_dict = {'gfg': [7, 6, 3],
+			'is': [2, 10, 3],
+			'best': [19, 4]}
+
+# printing original dictionary
+print("The original dictionary is : " + str(test_dict))
+
+# Sort Dictionary key and values List
+# Using loop + dictionary comprehension
+res = dict()
+for key in sorted(test_dict):
+	res[key] = sorted(test_dict[key])
+
+# printing result
+print("The sorted dictionary : " + str(res))
+
+
+Output :
+The original dictionary is : {‘gfg’: [7, 6, 3], ‘is’: [2, 10, 3], ‘best’: [19, 4]}
+The sorted dictionary : {‘best’: [4, 19], ‘gfg’: [3, 6, 7], ‘is’: [2, 3, 10]}
+
+
+Using dictionary comprehension + sorted()
+The combination of above functions can be used to solve this problem. 
+In this, we perform the task of dual sorting inside dictionary comprehension construct.
+
+
+# Python3 code to demonstrate working of
+# Sort Dictionary key and values List
+# Using dictionary comprehension + sorted()
+
+# initializing dictionary
+test_dict = {'gfg': [7, 6, 3],
+			'is': [2, 10, 3],
+			'best': [19, 4]}
+
+# printing original dictionary
+print("The original dictionary is : " + str(test_dict))
+
+# Sort Dictionary key and values List
+# Using dictionary comprehension + sorted()
+res = {key : sorted(test_dict[key]) for key in sorted(test_dict)}
+
+# printing result
+print("The sorted dictionary : " + str(res))
+
+
+Output :
+The original dictionary is : {‘gfg’: [7, 6, 3], ‘is’: [2, 10, 3], ‘best’: [19, 4]}
+The sorted dictionary : {‘best’: [4, 19], ‘gfg’: [3, 6, 7], ‘is’: [2, 3, 10]}
+
+
+Given a sentence containing n words/strings. 
+Remove all duplicates words/strings which are similar to each others.
+
+
+from collections import Counter
+
+def remov_duplicates(input):
+
+	# split input string separated by space
+	input = input.split(" ")
+
+	# now create dictionary using counter method
+	# which will have strings as key and their
+	# frequencies as value
+	UniqW = Counter(input)
+
+	# joins two adjacent elements in iterable way
+	s = " ".join(UniqW.keys())
+	print (s)
+
+# Driver program
+if __name__ == "__main__":
+	input = 'Python is great and Java is also great'
+	remov_duplicates(input)
+
+
+Output
+and great Java Python is also
+
+
+Alternative Method:- 
+
+
+# Program without using any external library
+s = "Python is great and Java is also great"
+l = s.split()
+k = []
+for i in l:
+
+	# If condition is used to store unique string
+	# in another list 'k'
+	if (s.count(i)>=1 and (i not in k)):
+		k.append(i)
+print(' '.join(k))
+
+
+Output
+Python is great and Java also
+
+
+Another shorter implementation:
+
+# Python3 program
+
+string = 'Python is great and Java is also great'
+
+print(' '.join(dict.fromkeys(string.split())))
+
+
+Output
+Python is great and Java also
+
+
+In python, dictionaries are containers that map one key to its value with access time complexity to be O(1). 
+But in many applications, the user doesn’t know all the keys present in the dictionaries. 
+In such instances, if the user tries to access a missing key, an error is popped indicating missing keys. 
+
+
+Using get()
+get(key,def_val) method is useful when we have to check for the key. 
+If the key is present, the value associated with the key is printed, else the def_value passed in arguments is returned.
+
+
+country_code = {'India' : '0091',
+				'Australia' : '0025',
+				'Nepal' : '00977'}
+
+# search dictionary for country code of India
+print(country_code.get('India', 'Not Found'))
+
+# search dictionary for country code of Japan
+print(country_code.get('Japan', 'Not Found'))
+
+
+Output: 
+
+0091
+Not Found
+
+
+Using setdefault()
+setdefault(key, def_value) works in a similar way as to get(), 
+but the difference is that each time a key is absent, a new key is created with the def_value associated with the key passed in arguments.
+
+
+country_code = {'India' : '0091',
+				'Australia' : '0025',
+				'Nepal' : '00977'}
+
+# Set a default value for Japan
+country_code.setdefault('Japan', 'Not Present')
+
+# search dictionary for country code of India
+print(country_code['India'])
+
+# search dictionary for country code of Japan
+print(country_code['Japan'])
+
+
+Output: 
+ 
+
+0091
+Not Present
+
+
+Using defaultdict
+“defaultdict” is a container that is defined in a module named “collections“. 
+It takes a function(default factory) as its argument. 
+By default, the default factory is set to “int” i.e 0. 
+If a key is not present in the defaultdict, the default factory value is returned and displayed. 
+It has advantages over get() or setdefault(). 
+ 
+
+A default value is set at the declaration. 
+There is no need to invoke the function again and again and pass the similar values as arguments. Hence saving time.
+The implementation of defaultdict is faster than get() or setdefault().
+
+
+# Python code to demonstrate defaultdict
+
+# importing "collections" for defaultdict
+import collections
+
+# declaring defaultdict
+# sets default value 'Key Not found' to absent keys
+defd = collections.defaultdict(lambda : 'Key Not found')
+
+# initializing values
+defd['a'] = 1
+
+# initializing values
+defd['b'] = 2
+
+# printing value
+print ("The value associated with 'a' is : ",end="")
+print (defd['a'])
+
+# printing value associated with 'c'
+print ("The value associated with 'c' is : ",end="")
+print (defd['c'])
+
+
+Output : 
+ 
+
+The value associated with 'a' is : 1
+The value associated with 'c' is : Key Not found
+
+
+
+Use of setdefault()
+
+Here we have used the dictionary method setdefault() to convert the first parameter to key and the second to the value of the dictionary. 
+setdefault(key, def_value) function searches for a key and displays its value and creates a new key with def_value if the key is not present. 
+Using the append function we just added the values to the dictionary.
+
+
+# Python code to convert into dictionary
+
+def Convert(tup, di):
+	for a, b in tup:
+		di.setdefault(a, []).append(b)
+	return di
+	
+# Driver Code	
+tups = [("akash", 10), ("gaurav", 12), ("anand", 14),
+	("suraj", 20), ("akhil", 25), ("ashish", 30)]
+dictionary = {}
+print (Convert(tups, dictionary))
+
+
+Output:
+
+{'akash': [10], 'gaurav': [12], 'anand': [14], 
+ 'ashish': [30], 'akhil': [25], 'suraj': [20]}
+ 
+ 
+ # Python code to convert into dictionary
+list_1=[("Nakul",93), ("Shivansh",45), ("Samved",65),
+		("Yash",88), ("Vidit",70), ("Pradeep",52)]
+dict_1=dict()
+
+for student,score in list_1:
+	dict_1.setdefault(student, []).append(score)
+print(dict_1)
+
+
+
+Output:
+
+{'Nakul': [93], 'Shivansh': [45], 'Samved': [65], 'Yash': [88], 'Vidit': [70], 'Pradeep': [52]}
+
+
+
+Use of dict() method
+
+
+# Python code to convert into dictionary
+def Convert(tup, di):
+	di = dict(tup)
+	return di
+	
+# Driver Code
+tups = [("akash", 10), ("gaurav", 12), ("anand", 14),
+	("suraj", 20), ("akhil", 25), ("ashish", 30)]
+dictionary = {}
+print (Convert(tups, dictionary))
+
+
+Output:
+
+{'anand': 14, 'akash': 10, 'akhil': 25, 
+ 'suraj': 20, 'ashish': 30, 'gaurav': 12}
+ 
+ 
+ 
+ # Python code to convert into dictionary
+
+print (dict([('Sachin', 10), ('MSD', 7), ('Kohli', 18), ('Rohit', 45)]))
+
+
+
+Output:
+
+{'Sachin': 10, 'MSD': 7, 'Kohli': 18, 'Rohit': 45}
+

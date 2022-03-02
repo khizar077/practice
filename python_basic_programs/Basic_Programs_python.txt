@@ -1,0 +1,506 @@
+def add_sub(x,y):
+  c=x+y
+  d=x-y
+  return c,d
+print(add_sub(10,5))
+
+
+Output:
+(15, 5)
+
+
+The return statement is used to exit a function and go back to the place from where it was
+called. This statement can contain expression which gets evaluated and the value is returned.
+If there is no expression in the statement or the return statement itself is not present inside a
+function, then the function will return the None object.
+
+def hello_f():
+  return "hellocollege"
+print(hello_f().upper())  #It will print the statement in uppercase.
+
+Output:
+HELLOCOLLEGE
+
+# Passing Arguments
+def hello(wish):
+  return '{}'.format(wish)
+print(hello("khizer"))
+
+Output:
+khizer
+
+
+Here, the function wish() has two parameters. Since, we have called this function with two
+arguments, it runs smoothly and we do not get any error. If we call it with different number
+of arguments, the interpreter will give errors.
+
+def wish(name,msg):
+  """This function greets to
+  the person with the provided message"""
+ print("Hello",name + ' ' + msg) # Giving syntax error here 
+wish("khizer","Good morning!") 
+
+Output:
+Hello khizer Good morning!
+
+
+# Python 3 program to find
+# factorial of given number
+def factorial(n):
+	
+	# single line to find factorial
+	return 1 if (n==1 or n==0) else n * factorial(n - 1);
+
+# Driver Code
+num = 5;
+print("Factorial of",num,"is",
+factorial(num))
+
+
+
+Output
+
+Factorial of 5 is 120
+
+
+#write a python program to display a particular month of a year using calendar
+module
+
+import calendar
+print(calendar.month(2020,1))
+
+Output
+
+    January 2020
+Mo Tu We Th Fr Sa Su
+       1  2  3  4  5
+ 6  7  8  9 10 11 12
+13 14 15 16 17 18 19
+20 21 22 23 24 25 26
+27 28 29 30 31
+
+# write a python program to check whether the given year is leap or not.
+
+import calendar
+print(calendar.isleap(2021))
+
+output
+
+False
+
+
+#write a python program to print all the months of given year.
+
+import calendar
+print(calendar.calendar(2020,1,1,1))
+
+Output
+
+                              2020
+
+      January               February               March
+Mo Tu We Th Fr Sa Su  Mo Tu We Th Fr Sa Su  Mo Tu We Th Fr Sa Su
+       1  2  3  4  5                  1  2                     1
+ 6  7  8  9 10 11 12   3  4  5  6  7  8  9   2  3  4  5  6  7  8
+13 14 15 16 17 18 19  10 11 12 13 14 15 16   9 10 11 12 13 14 15
+20 21 22 23 24 25 26  17 18 19 20 21 22 23  16 17 18 19 20 21 22
+27 28 29 30 31        24 25 26 27 28 29     23 24 25 26 27 28 29
+                                            30 31
+
+       April                  May                   June
+Mo Tu We Th Fr Sa Su  Mo Tu We Th Fr Sa Su  Mo Tu We Th Fr Sa Su
+       1  2  3  4  5               1  2  3   1  2  3  4  5  6  7
+ 6  7  8  9 10 11 12   4  5  6  7  8  9 10   8  9 10 11 12 13 14
+13 14 15 16 17 18 19  11 12 13 14 15 16 17  15 16 17 18 19 20 21
+20 21 22 23 24 25 26  18 19 20 21 22 23 24  22 23 24 25 26 27 28
+27 28 29 30           25 26 27 28 29 30 31  29 30
+
+        July                 August              September
+Mo Tu We Th Fr Sa Su  Mo Tu We Th Fr Sa Su  Mo Tu We Th Fr Sa Su
+       1  2  3  4  5                  1  2      1  2  3  4  5  6
+ 6  7  8  9 10 11 12   3  4  5  6  7  8  9   7  8  9 10 11 12 13
+13 14 15 16 17 18 19  10 11 12 13 14 15 16  14 15 16 17 18 19 20
+20 21 22 23 24 25 26  17 18 19 20 21 22 23  21 22 23 24 25 26 27
+27 28 29 30 31        24 25 26 27 28 29 30  28 29 30
+                      31
+
+      October               November              December
+Mo Tu We Th Fr Sa Su  Mo Tu We Th Fr Sa Su  Mo Tu We Th Fr Sa Su
+          1  2  3  4                     1      1  2  3  4  5  6
+ 5  6  7  8  9 10 11   2  3  4  5  6  7  8   7  8  9 10 11 12 13
+12 13 14 15 16 17 18   9 10 11 12 13 14 15  14 15 16 17 18 19 20
+19 20 21 22 23 24 25  16 17 18 19 20 21 22  21 22 23 24 25 26 27
+26 27 28 29 30 31     23 24 25 26 27 28 29  28 29 30 31
+
+
+
+# Python 3 program to find
+# factorial of given number
+def factorial(n):
+	if n < 0:
+		return 0
+	elif n == 0 or n == 1:
+		return 1
+	else:
+		fact = 1
+		while(n > 1):
+			fact *= n
+			n -= 1
+		return fact
+
+# Driver Code
+num = 5;
+print("Factorial of",num,"is",
+factorial(num))
+
+Output:
+
+Factorial of 5 is 120
+
+# Python 3 program to find
+# factorial of given number
+
+def factorial(n):
+
+	# single line to find factorial
+	return 1 if (n==1 or n==0) else n * factorial(n - 1)
+
+
+# Driver Code
+num = 5
+print ("Factorial of",num,"is",
+	factorial(num))
+
+Output:
+
+Factorial of 5 is 120
+
+
+# Python 3 program to find
+# factorial of given number by built in function
+import math
+
+def factorial(n):
+	return(math.factorial(n))
+
+
+# Driver Code
+num = 5
+print("Factorial of", num, "is",
+	factorial(num))
+
+Output:
+
+Factorial of 5 is 120
+
+
+
+# Python program to find the
+# maximum of two numbers usin-elif
+
+
+def maximum(a, b):
+	
+	if a >= b:
+		return a
+	else:
+		return b
+	
+# Driver code
+a = 2
+b = 4
+print(maximum(a, b))
+
+Output
+4
+
+
+
+# Python program to find the
+# maximum of two numbers
+
+
+a = 2
+b = 4
+
+maximum = max(a, b)
+print(maximum)
+
+Output
+4
+
+Method #3: Using Ternary Operator
+
+This operator is also known as conditional expression are operators that evaluate
+something based on a condition being true or false. It simply allows testing a condition in a single line
+
+# Python program to find the
+# maximum of two numbers
+	
+# Driver code
+a = 2
+b = 4
+
+# Use of ternary operator
+print(a if a >= b else b)
+
+Output
+4
+
+
+Simple interest formula is given by:
+Simple Interest = (P x T x R)/100
+Where,
+P is the principle amount
+T is the time and
+R is the rate
+Examples:
+
+EXAMPLE1:
+Input : P = 10000
+        R = 5
+        T = 5
+Output :2500
+We need to find simple interest on 
+Rs. 10,000 at the rate of 5% for 5 
+units of time.
+
+EXAMPLE2:
+Input : P = 3000
+        R = 7
+        T = 1
+Output :210
+
+# Python3 program to find simple interest
+# for given principal amount, time and
+# rate of interest.
+
+
+def simple_interest(p,t,r):
+	print('The principal is', p)
+	print('The time period is', t)
+	print('The rate of interest is',r)
+	
+	si = (p * t * r)/100
+	
+	print('The Simple Interest is', si)
+	return si
+	
+# Driver code
+simple_interest(8, 6, 8)
+
+Output:
+The principal is 8
+The time period is 6
+The rate of interest is 8
+The Simple Interest is 3.84
+
+Formula to calculate compound interest annually is given by: 
+A = P(1 + R/100) t 
+Compound Interest = A – P 
+Where, 
+A is amount 
+P is principle amount 
+R is the rate and 
+T is the time span
+
+Example: 
+ 
+
+Input : Principle (amount): 1200
+        Time: 2
+        Rate: 5.4
+Output : Compound Interest = 133.099243
+
+# Python3 program to find compound
+# interest for given values.
+
+def compound_interest(principle, rate, time):
+
+	# Calculates compound interest
+	Amount = principle * (pow((1 + rate / 100), time))
+	CI = Amount - principle
+	print("Compound interest is", CI)
+
+# Driver Code
+compound_interest(10000, 10.25, 5)
+
+Output: 
+
+Compound interest is 6288.946267774416
+
+
+Given a number x, determine whether the given number is Armstrong number or not. 
+A positive integer of n digits is called an Armstrong number of order n (order is number of digits) if.
+
+abcd... = pow(a,n) + pow(b,n) + pow(c,n) + pow(d,n) + ....
+
+Example:
+
+Input : 153
+Output : Yes
+153 is an Armstrong number.
+1*1*1 + 5*5*5 + 3*3*3 = 153
+
+Input : 120
+Output : No
+120 is not a Armstrong number.
+1*1*1 + 2*2*2 + 0*0*0 = 9
+
+Input : 1253
+Output : No
+1253 is not a Armstrong Number
+1*1*1*1 + 2*2*2*2 + 5*5*5*5 + 3*3*3*3 = 723
+
+Input : 1634
+Output : Yes
+1*1*1*1 + 6*6*6*6 + 3*3*3*3 + 4*4*4*4 = 1634
+
+# Python program to determine whether
+# the number is Armstrong number or not
+
+# Function to calculate x raised to
+# the power y
+def power(x, y):
+	
+	if y == 0:
+		return 1
+	if y % 2 == 0:
+		return power(x, y // 2) * power(x, y // 2)
+		
+	return x * power(x, y // 2) * power(x, y // 2)
+
+# Function to calculate order of the number
+def order(x):
+
+	# Variable to store of the number
+	n = 0
+	while (x != 0):
+		n = n + 1
+		x = x // 10
+		
+	return n
+
+# Function to check whether the given
+# number is Armstrong number or not
+def isArmstrong(x):
+	
+	n = order(x)
+	temp = x
+	sum1 = 0
+	
+	while (temp != 0):
+		r = temp % 10
+		sum1 = sum1 + power(r, n)
+		temp = temp // 10
+
+	# If condition satisfies
+	return (sum1 == x)
+
+# Driver code
+x = 153
+print(isArmstrong(x))
+
+x = 1253
+print(isArmstrong(x))
+
+Output
+
+True
+False
+1
+1
+
+In mathematical terms, the sequence Fn of Fibonacci numbers is defined by the recurrence relation 
+
+Fn = Fn-1 + Fn-2
+With seed values 
+
+F0 = 0 and F1 = 1.
+
+Method 1 ( Use recursion ) :
+# Function for nth Fibonacci number
+
+def Fibonacci(n):
+	if n<= 0:
+		print("Incorrect input")
+	# First Fibonacci number is 0
+	elif n == 1:
+		return 0
+	# Second Fibonacci number is 1
+	elif n == 2:
+		return 1
+	else:
+		return Fibonacci(n-1)+Fibonacci(n-2)
+
+# Driver Program
+
+print(Fibonacci(10))
+
+Output
+34
+
+
+Method 2 ( Use Dynamic Programming ) : 
+# Function for nth fibonacci number - Dynamic Programming
+# Taking 1st two fibonacci numbers as 0 and 1
+
+FibArray = [0, 1]
+
+def fibonacci(n):
+	if n<0:
+		print("Incorrect input")
+	elif n<= len(FibArray):
+		return FibArray[n-1]
+	else:
+		temp_fib = fibonacci(n-1)+fibonacci(n-2)
+		FibArray.append(temp_fib)
+		return temp_fib
+
+# Driver Program
+
+print(fibonacci(9))
+
+Output: 
+
+21
+
+Method 3 ( Use Dynamic Programming with Space Optimization) : 
+# Function for nth fibonacci number - Space Optimisation
+# Taking 1st two fibonacci numbers as 0 and 1
+
+def fibonacci(n):
+	a = 0
+	b = 1
+	if n < 0:
+		print("Incorrect input")
+	elif n == 0:
+		return a
+	elif n == 1:
+		return b
+	else:
+		for i in range(2, n):
+			c = a + b
+			a = b
+			b = c
+		return b
+
+# Driver Program
+
+print(fibonacci(9))
+
+Output: 
+
+21
+
+
+
+
+
+
+
+
+
+
+
+

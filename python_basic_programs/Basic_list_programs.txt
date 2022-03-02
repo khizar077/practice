@@ -1,0 +1,734 @@
+Python List 
+-------------------------
+
+# Python3 program to swap first
+# and last element of a list
+
+# Swap function
+def swapList(newList):
+	size = len(newList)
+	
+	# Swapping
+	temp = newList[0]
+	newList[0] = newList[size - 1]
+	newList[size - 1] = temp
+	
+	return newList
+	
+# Driver code
+newList = [12, 35, 9, 56, 24]
+
+print(swapList(newList))
+
+Output:
+
+[24, 35, 9, 56, 12]
+
+# Python3 program to swap first
+# and last element of a list
+
+# Swap function
+def swapList(newList):
+	
+	newList[0], newList[-1] = newList[-1], newList[0]
+
+	return newList
+	
+# Driver code
+newList = [12, 35, 9, 56, 24]
+print(swapList(newList))
+
+Output:
+
+[24, 35, 9, 56, 12]
+
+# Python3 program to swap first
+# and last element of a list
+
+# Swap function
+def swapList(list):
+	
+	# Storing the first and last element
+	# as a pair in a tuple variable get
+	get = list[-1], list[0]
+	
+	# unpacking those elements
+	list[0], list[-1] = get
+	
+	return list
+	
+# Driver code
+newList = [12, 35, 9, 56, 24]
+print(swapList(newList))
+
+Output:
+
+[24, 35, 9, 56, 12]
+
+
+# Python3 program to illustrate
+# the usage of * operarnd
+list = [1, 2, 3, 4]
+
+a, *b, c = list
+
+print(a)
+print(b)
+print(c)
+
+
+Output: 
+
+1
+[2, 3]
+4
+
+# Python3 program to swap first
+# and last element of a list
+
+# Swap function
+def swapList(list):
+	
+	start, *middle, end = list
+	list = [end, *middle, start]
+	
+	return list
+	
+# Driver code
+newList = [12, 35, 9, 56, 24]
+
+print(swapList(newList))
+
+Output:
+
+[24, 35, 9, 56, 12]
+
+
+# Python code to demonstrate
+# length of list
+# using naive method
+
+# Initializing list
+test_list = [ 1, 4, 5, 7, 8 ]
+
+# Printing test_list
+print ("The list is : " + str(test_list))
+
+# Finding length of list
+# using loop
+# Initializing counter
+counter = 0
+for i in test_list:
+	
+	# incrementing counter
+	counter = counter + 1
+
+# Printing length of list
+print ("Length of list using naive method is : " + str(counter))
+
+Output : 
+
+The list is : [1, 4, 5, 7, 8]
+Length of list using naive method is : 5
+
+# Python program to demonstrate working
+# of len()
+a = []
+a.append("Hello")
+a.append("Geeks")
+a.append("For")
+a.append("Geeks")
+print("The length of list is: ", len(a))
+
+Output: 
+The length of list is:  4
+
+
+# Python program to demonstrate working
+# of len()
+n = len([10, 20, 30])
+print("The length of list is: ", n)
+
+Output: 
+The length of list is:  3
+
+# Python code to demonstrate
+# length of list
+# using len() and length_hint
+from operator import length_hint
+
+# Initializing list
+test_list = [ 1, 4, 5, 7, 8 ]
+
+# Printing test_list
+print ("The list is : " + str(test_list))
+
+# Finding length of list
+# using len()
+list_len = len(test_list)
+
+# Finding length of list
+# using length_hint()
+list_len_hint = length_hint(test_list)
+
+# Printing length of list
+print ("Length of list using len() is : " + str(list_len))
+print ("Length of list using length_hint() is : " + str(list_len_hint))
+
+Output : 
+
+The list is : [1, 4, 5, 7, 8]
+Length of list using len() is : 5
+Length of list using length_hint() is : 5
+
+"""
+Python code to demonstrate
+checking of element existence
+using List count() method
+"""
+
+# Initializing list
+test_list = [10, 15, 20, 7, 46, 2808]
+
+print("Checking if 15 exists in list")
+
+# number of times element exists in list
+exist_count = test_list.count(15)
+
+# checking if it is more then 0
+if exist_count > 0:
+	print("Yes, 15 exists in list")
+else:
+	print("No, 15 does not exists in list")
+	
+output:
+
+Checking if 15 exists in list
+Yes, 15 exists in list
+
+
+# Python code to demonstrate
+# checking of element existence
+# using loops and in
+
+# Initializing list
+test_list = [ 1, 6, 3, 5, 3, 4 ]
+
+print("Checking if 4 exists in list ( using loop ) : ")
+
+# Checking if 4 exists in list
+# using loop
+for i in test_list:
+	if(i == 4) :
+		print ("Element Exists")
+
+print("Checking if 4 exists in list ( using in ) : ")
+
+# Checking if 4 exists in list
+# using in
+if (4 in test_list):
+	print ("Element Exists")
+	
+Output : 
+ 
+
+Checking if 4 exists in list ( using loop ) : 
+Element Exists
+Checking if 4 exists in list ( using in ) : 
+Element Exists
+
+
+# Python program to clear a list
+# using clear() method
+
+# Creating list
+GEEK = [6, 0, 4, 1]
+print('GEEK before clear:', GEEK)
+
+# Clearing list
+GEEK.clear()
+print('GEEK after clear:', GEEK)
+
+Output:
+
+GEEK before clear: [6, 0, 4, 1]
+GEEK after clear: []
+
+
+# Python3 code to demonstrate
+# clearing a list using
+# clear and Reinitializing
+
+# Initializing lists
+list1 = [1, 2, 3]
+list2 = [5, 6, 7]
+
+# Printing list1 before deleting
+print ("List1 before deleting is : "
++ str(list1))
+
+# deleting list using clear()
+list1.clear()
+
+# Printing list1 after clearing
+print ("List1 after clearing using clear() : "
++ str(list1))
+
+# Printing list2 before deleting
+print ("List2 before deleting is : "
++ str(list2))
+
+# deleting list using reinitialization
+list2 = []
+
+# Printing list2 after reinitialization
+print ("List2 after clearing using reinitialization : "
++ str(list2))
+
+Output:
+
+List1 before deleting is : [1, 2, 3]
+List1 after clearing using clear() : []
+List2 before deleting is : [5, 6, 7]
+List2 after clearing using reinitialization : []
+
+
+# Python3 code to demonstrate
+# clearing a list using
+# *= 0 method
+
+# Initializing lists
+list1 = [1, 2, 3]
+
+# Printing list1 before deleting
+print ("List1 before deleting is : " + str(list1))
+
+# deleting list using *= 0
+list1 *= 0
+
+# Printing list1 after *= 0
+print ("List1 after clearing using *= 0: " + str(list1))
+
+Output:
+
+List1 before deleting is : [1, 2, 3]
+List1 after clearing using *= 0: []
+
+
+# Python3 code to demonstrate
+# clearing a list using
+# del method
+
+# Initializing lists
+list1 = [1, 2, 3]
+list2 = [5, 6, 7]
+
+# Printing list1 before deleting
+print ("List1 before deleting is : " + str(list1))
+
+# deleting list1 using del
+del list1[:]
+print ("List1 after clearing using del : " + str(list1))
+
+
+# Printing list2 before deleting
+print ("List2 before deleting is : " + str(list2))
+
+# deleting list using del
+del list2[:]
+print ("List2 after clearing using del : " + str(list2))
+
+Output:
+
+List1 before deleting is : [1, 2, 3]
+List1 after clearing using del : []
+List2 before deleting is : [5, 6, 7]
+List2 after clearing using del : []
+
+
+
+# Reversing a list using reverse()
+def Reverse(lst):
+	lst.reverse()
+	return lst
+	
+lst = [10, 11, 12, 13, 14, 15]
+print(Reverse(lst))
+
+Output: 
+ 
+
+[15, 14, 13, 12, 11, 10]
+
+# Reversing a list using slicing technique
+def Reverse(lst):
+	new_lst = lst[::-1]
+	return new_lst
+	
+lst = [10, 11, 12, 13, 14, 15]
+print(Reverse(lst))
+
+Output: 
+ 
+
+[15, 14, 13, 12, 11, 10]
+
+
+# Python program to find sum of elements in list
+
+# creating a list
+list1 = [11, 5, 17, 18, 23]
+
+# using sum() function
+total = sum(list1)
+
+# printing total value
+print("Sum of all elements in given list: ", total)
+
+Output: 
+ 
+
+Sum of all elements in given list:  74
+
+
+# Python program to find sum of all
+# elements in list using recursion
+
+# creating a list
+list1 = [11, 5, 17, 18, 23]
+
+# creating sum_list function
+def sumOfList(list, size):
+ if (size == 0):
+	return 0
+ else:
+	return list[size - 1] + sumOfList(list, size - 1)
+
+# Driver code	
+total = sumOfList(list1, len(list1))
+
+print("Sum of all elements in given list: ", total)
+
+Output: 
+ 
+
+Sum of all elements in given list:  74
+
+
+# Python program to multiply all values in the
+# list using traversal
+
+def multiplyList(myList) :
+	
+	# Multiply elements one by one
+	result = 1
+	for x in myList:
+		result = result * x
+	return result
+	
+# Driver code
+list1 = [1, 2, 3]
+list2 = [3, 2, 4]
+print(multiplyList(list1))
+print(multiplyList(list2))
+
+Output: 
+
+6
+24 
+
+
+# Python3 program to multiply all values in the
+# list using math.prod
+
+import math
+list1 = [1, 2, 3]
+list2 = [3, 2, 4]
+
+
+result1 = math.prod(list1)
+result2 = math.prod(list2)
+print(result1)
+print(result2)
+
+Output: 
+
+6
+24 
+
+# Python program to find smallest
+# number in a list
+
+# list of numbers
+list1 = [10, 20, 4, 45, 99]
+
+# sorting the list
+list1.sort()
+
+# printing the first element
+print("Smallest element is:", *list1[:1])
+
+Output: 
+
+smallest element is: 4
+
+
+# Python program to find smallest using min()
+# number in a list
+
+# list of numbers
+list1 = [10, 20, 1, 45, 99]
+
+
+# printing the maximum element
+print("Smallest element is:", min(list1))
+
+Output: 
+
+Smallest element is: 1
+
+
+Output: 
+
+Enter number of elements in list: 4
+Enter elements: 12
+Enter elements: 19
+Enter elements: 11
+Enter elements: 99
+Smallest element is: 11
+
+# Python program to find largest
+# number in a list
+
+# list of numbers
+list1 = [10, 20, 4, 45, 99]
+
+# sorting the list
+list1.sort()
+
+# printing the last element
+print("Largest element is:", list1[-1])
+
+Output:
+
+Largest element is: 99
+
+# Python program to find largest
+# number in a list
+
+# list of numbers
+list1 = [10, 20, 4, 45, 99]
+
+
+# printing the maximum element
+print("Largest element is:", max(list1))
+
+Output:
+
+Largest element is: 99
+
+# Python program to find largest
+# number in a list
+
+# list of numbers
+list1 = [10, 20, 4, 45, 99]
+
+# sorting the list
+list1.sort()
+
+# printing the second last element
+print("Second largest element is:", list1[-2])
+
+Output
+Second largest element is: 45
+
+Method 3: By removing the max element from the list
+# Python program to find second largest
+# number in a list
+
+# list of numbers
+list1 = [10, 20, 4, 45, 99]
+
+# new_list is a set of list1
+new_list = set(list1)
+
+# removing the largest element from temp list
+new_list.remove(max(new_list))
+
+# elements in original list are not changed
+# print(list1)
+
+print(max(new_list))
+
+Output
+45
+
+
+# Python program to print Even Numbers in a List
+
+# list of numbers
+list1 = [10, 21, 4, 45, 66, 93]
+
+# iterating each number in list
+for num in list1:
+
+	# checking condition
+	if num % 2 == 0:
+		print(num, end=" ")
+
+Output: 
+
+10, 4, 66
+
+# Python program to print even Numbers in a List
+
+# list of numbers
+list1 = [10, 21, 4, 45, 66, 93]
+
+# using list comprehension
+even_nos = [num for num in list1 if num % 2 == 0]
+
+print("Even numbers in the list: ", even_nos)
+
+Output: 
+
+Even numbers in the list:  [10, 4, 66]
+
+
+# Python program to print Even Numbers in a List
+
+# list of numbers
+list1 = [10, 24, 4, 45, 66, 93]
+num = 0
+
+# using while loop
+while(num < len(list1)):
+
+	# checking condition
+	if list1[num] % 2 == 0:
+		print(list1[num], end=" ")
+
+	# increment num
+	num += 1
+Output: 
+
+10, 4, 66
+
+# Python program to print odd Numbers in a List
+
+# list of numbers
+list1 = [10, 21, 4, 45, 66, 93]
+i = 0
+
+# using while loop		
+while(i < len(list1)):
+	
+	# checking condition
+	if list1[i] % 2 != 0:
+		print(list1[i], end = " ")
+	
+	# increment i
+	i += 1
+	
+Output:
+
+21 45 93 
+
+# Python program to print odd Numbers in a List
+
+# list of numbers
+list1 = [10, 21, 4, 45, 66, 93]
+
+only_odd = [num for num in list1 if num % 2 == 1]
+
+print(only_odd)
+
+Output:
+
+21 45 93 
+
+
+ Let’s say we want to delete each element in the list which is divisible by 2 or all the even numbers.
+# Python program to remove multiple
+# elements from a list
+
+# creating a list
+list1 = [11, 5, 17, 18, 23, 50]
+
+# Iterate each element in list
+# and add them in variable total
+for ele in list1:
+	if ele % 2 == 0:
+		list1.remove(ele)
+
+# printing modified list
+print("New list after removing all even numbers: ", list1)
+
+Output: 
+
+New list after removing all even numbers:  [11, 5, 17, 23]
+
+#Using list comprehension
+#Removing all even elements in a list is as good as only including all the elements which are not even( i.e. odd elements). 
+
+# Python program to remove multiple
+# elements from a list
+
+# creating a list
+list1 = [11, 5, 17, 18, 23, 50]
+
+# will create a new list,
+# excluding all even numbers
+list1 = [ elem for elem in list1 if elem % 2 != 0]
+
+print(*list1)
+
+Output: 
+
+11 5 17 23
+
+
+# Python program to remove multiple
+#Remove adjacent elements using list slicing
+#Below Python code remove values from index 1 to 4.
+# elements from a list
+
+# creating a list
+list1 = [11, 5, 17, 18, 23, 50]
+
+# removes elements from index 1 to 4
+# i.e. 5, 17, 18, 23 will be deleted
+del list1[1:5]
+
+print(*list1)
+
+
+Output: 
+
+11 50
+
+
+#Using list comprehension
+#Let’s say the elements to be deleted is known, instead of the indexes of those elements. 
+#In this case, we can directly eliminate those elements without caring about indexes which we will see in next example
+
+# Python program to remove multiple
+# elements from a list
+
+# creating a list
+list1 = [11, 5, 17, 18, 23, 50]
+
+# items to be removed
+unwanted_num = {11, 5}
+
+list1 = [ele for ele in list1 if ele not in unwanted_num]
+
+# printing modified list
+print("New list after removing unwanted numbers: ", list1)
+
+
+Output: 
+
+New list after removing unwanted numbers:  [17, 18, 23, 50]
+
+ 
