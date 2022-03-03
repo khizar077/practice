@@ -1,0 +1,342 @@
+Question: 1
+
+What is the extension of File produced by compiler on Windows?
+(A) .a
+(B) .exe
+(C) .out
+(D) .obj
+
+Ans: B
+On Windows OS output file produced by compiler has .exe extension which means executable file.
+
+Question: 2
+
+Default output file produced by gcc compiler on Linux?
+
+(A) .a
+(B) a.obj
+(C) a.exe
+(D) a.out
+
+Ans: D
+By default GCC compiler produces a.out if name of output file is not specified.
+
+Question: 3
+
+Which of the following Linux command is used to find out Text, Data and BSS segment size of a binary a.out?
+
+(A) findsize a.out
+(B) size a.out
+(C) calc a.out
+(D) ls -ltr a.out
+
+Ans: B
+
+Question: 4
+
+What does .txt section contains?
+
+(A) Executable Instructions
+(B) Un-initialized Global Variables
+(C) Un-initialized Static Variables
+(D) Initialized Static & Global Variables
+
+Ans: A
+Text area is a part of RAM which contains executabel instructions.
+
+Question:5
+
+What are the key features in the C programming language?
+
+Answer: Features are as follows:
+
+Portability: It is a platform-independent language.
+Modularity: Possibility to break down large programs into small modules.
+Flexibility: The possibility of a programmer to control the language.
+Speed: C comes with support for system programming and hence it compiles and executes with high speed 
+when compared with other high-level languages.
+Extensibility: Possibility to add new features by the programmer.
+
+Question:6
+
+What are the basic data types associated with C?
+
+Answer:
+
+Int – Represent the number (integer)
+Float – Number with a fraction part.
+Double – Double-precision floating-point value
+Char – Single character
+Void – Special purpose type without any value.
+
+
+Question:7
+
+What is the description for syntax errors?
+
+Answer: The mistakes/errors that occur while creating a program are called syntax errors. 
+Misspelled commands or incorrect case commands, an incorrect number of parameters in calling method /function, 
+data type mismatches can be identified as common examples for syntax errors.
+
+
+Question:8
+
+What is the process to create increment and decrement statement in C?
+
+Answer: There are two possible methods to perform this task.
+
+Use increment (++) and decrement (-) operator.
+Example When x=4, x++ returns 5 and x- returns 3.
+
+Use conventional + or – sign.
+Example When x=4, use x+1 to get 5 and x-1 to get 3.
+
+
+Question:9
+
+What are reserved words with a programming language?
+
+Answer: The words that are a part of the standard C language library are called reserved words. 
+Those reserved words have special meaning and it is not possible to use them for any activity other than its intended functionality.
+
+Example: void, return int.
+
+
+Question:10
+
+What is the explanation for the dangling pointer in C?
+
+Answer: When there is a pointer pointing to a memory address of any variable, 
+but after some time the variable was deleted from the memory location while keeping 
+the pointer pointing to that location is known as a dangling pointer in C.
+
+
+Question:11
+
+Describe static function with its usage?
+
+Answer: A function, which has a function definition prefixed with a static keyword is defined as a static function. 
+The static function should be called within the same source code.
+
+
+Question:12
+
+Describe Wild Pointers in C?
+
+Answer: Uninitialized pointers in the C code are known as Wild Pointers. 
+They point to some arbitrary memory location and can cause bad program behavior or program crash.
+
+
+Question:13
+
+What is the difference between ++a and a++?
+
+Answer: ‘++a”  is called prefixed increment and the increment will happen first on a variable. ‘a++’ is called postfix increment and 
+the increment happens after the value of a variable used for the operations.
+
+
+Question:14
+
+Describe the difference between = and == symbols in C programming?
+
+Answer: ‘==’ is the comparison operator which is used to compare the value or expression on the 
+left-hand side with the value or expression on the right-hand side.
+
+‘=’ is the assignment operator which is used to assign the value of the right-hand side to the variable on the left-hand side.
+
+Question:15
+
+What is the explanation for prototype function in C?
+
+Answer: Prototype function is a declaration of a function with the following information to the compiler.
+
+Name of the function.
+The return type of the function.
+Parameters list of the function.
+
+int sum(int, int);
+
+In this example Name of the function is Sum, 
+the return type is the integer data type and it accepts two integer parameters.
+
+
+Question:16
+
+Describe the header file and its usage in C programming?
+
+Answer: The file containing the definitions and prototypes of the functions being used in the program are called a header file. 
+It is also known as a library file.
+
+Example: The header file contains commands like printf and scanf is from the stdio.h library file.
+
+
+Question:17
+
+There is a practice in coding to keep some code blocks in comment symbols than delete it when debugging. How this affects when debugging?
+
+Answer: This concept is called commenting out and this is the way to isolate some part of the code which scans possible reason for the error. 
+Also, this concept helps to save time because if the code is not the reason for the issue it can simply be removed from comment.
+
+
+Question:18
+
+In compilation process at what sequence Preprocessor comes into picture?
+
+(A) 1
+(B) 2
+(C) 3
+(D) 4
+
+Ans: A
+
+Question:19
+
+Preprocessor includes content of header files added in source code?
+
+(A) Yes
+(B) No
+
+Ans: A
+
+
+Question:20
+
+Which compilation unit is responsible for adding header files content in the source code?
+
+(A) Linker
+(B) Compiler
+(C) Assembler
+(D) Preprocessor
+
+Ans: D
+
+
+Question:21
+
+Is there any limit in adding no of header files in program?
+
+(A) Yes
+(B) No
+
+Ans: B
+
+Question:22
+
+What is the extension of output file produced by Preprocessor?
+
+(A) .h
+(B) .exe
+(C) .i
+(D) .asm
+
+Ans: C
+
+
+Question:23
+
+__FILE__ is predefined macro and contains the current filename as a string. Is this true/false?
+
+(A) Yes
+(B) No
+
+Ans: A
+
+
+Question:24
+
+Which of the following ways can be used to include header file in C programs?
+
+(A) #include<stdio.h>
+(B) #include"stdio.h"
+(C) Both A & B
+
+Ans: C
+
+
+Question:25
+
+What should be the output of below program ?
+
+##include "stdio.h"
+
+int  main()
+{
+	printf("CppBuzz.com");
+return 0; 	
+}
+
+(A) CppBuzz.com
+(B) No output
+(C) Compilation Error in preprocessing
+(D) None of above
+
+Ans: C
+
+
+Question:26
+
+What should be the output of below program?
+
+#define # @
+@include "stdio.h"
+
+int main()
+{
+ 	printf("CppBuzz.com");
+ 	return 0;
+}
+
+(A) CppBuzz.com
+(B) Nothing
+(C) Compilation Error
+(D) Depends on Compilor
+
+Ans: C
+
+
+Question:27
+
+Which of the following ways are correct to comment out preprocessing of any line?
+
+(A) -- #include<stdio.h>
+(B) // #include<stdio.h>
+(C) ''#include<stdio.h>
+(D) ##include<stdio.h>
+
+Ans: B
+
+
+Question:28
+
+Will compiler produce any compilation error if same header file is included two times?
+
+(A) Yes
+(B) No
+
+Ans: B
+
+
+Question:29
+
+The output of Assembler in process of compilation is?
+
+(A) Assembly Code
+(B) Object Code
+(C) Executable
+(D) .i file
+
+Ans: B
+
+
+Question:30
+
+The input to the Assembler in the compilation process is?
+
+(A) Assembly Code
+(B) .i file produced by Preprocessor
+(C) Object Code
+(D) Source Code
+
+Ans: A
+Assembler is part of Compiler and it produced Assemly code as ouput which has .asm extension.
+

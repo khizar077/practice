@@ -1,0 +1,401 @@
+C Language Introduction:
+=====================================
+
+C is a procedural programming language. 
+It was initially developed by Dennis Ritchie in the year 1972. 
+It was mainly developed as a system programming language to write an operating system. 
+The main features of the C language include low-level memory access, 
+a simple set of keywords, and a clean style, 
+these features make C language suitable for system programmings like an operating system or compiler development. 
+Many later languages have borrowed syntax/features directly or indirectly from the C language. 
+Like syntax of Java, PHP, JavaScript, and many other languages are mainly based on the C language. 
+C++ is nearly a superset of C language (Few programs may compile in C, but not in C++). 
+
+
+Structure of a C program 
+After the above discussion, we can formally assess the structure of a C program. 
+By structure, it is meant that any program can be written in this structure only. 
+Writing a C program in any other structure will hence lead to a Compilation Error.
+The structure of a C program is as follows:
+
+
+   Header     #include <stdio.h>
+   
+   main()     int main()
+              {
+   
+   variable      int a=10;
+   declaration
+   
+   body          printf("%d",a);
+   
+   return        return0;
+   
+               }
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+Header Files Inclusion: The first and foremost component is the inclusion of the Header files in a C program. 
+A header file is a file with extension .h which contains C function declarations 
+and macro definitions to be shared between several source files.
+Some of C Header files: 
+stddef.h – Defines several useful types and macros.
+stdint.h – Defines exact width integer types.
+stdio.h – Defines core input and output functions
+stdlib.h – Defines numeric conversion functions, pseudo-random network generator, memory allocation
+string.h – Defines string handling functions
+math.h – Defines common mathematical functions
+
+
+Main Method Declaration: The next part of a C program is to declare the main() function. 
+The syntax to declare the main function is:
+Syntax to Declare the main method: 
+ 
+int main()
+{}
+
+
+Variable Declaration: The next part of any C program is the variable declaration. 
+It refers to the variables that are to be used in the function. Please note that in the C program, 
+no variable can be used without being declared. 
+Also in a C program, the variables are to be declared before any operation in the function.
+
+Example: 
+ 
+int main()
+{
+    int a;
+.
+.
+
+
+
+Body: The body of a function in the C program, refers to the operations that are performed in the functions. 
+It can be anything like manipulations, searching, sorting, printing, etc.
+
+
+Example: 
+ 
+int main()
+{
+    int a;
+
+    printf("%d", a);
+.
+.
+
+
+Return Statement: The last part of any C program is the return statement. 
+The return statement refers to the returning of the values from a function. 
+This return statement and return value depend upon the return type of the function. 
+For example, if the return type is void, then there will be no return statement. 
+In any other case, there will be a return statement and the return value will be of the type of the specified return type.
+
+
+Example: 
+ 
+int main()
+{
+    int a;
+
+    printf("%d", a);
+
+    return 0;
+}
+
+
+Writing first program: 
+Following is first program in C
+
+
+#include <stdio.h>
+int main(void)
+{
+	printf("GeeksQuiz");
+	return 0;
+}
+
+
+Output
+
+GeeksQuiz
+
+
+Let us analyze the program line by line. 
+Line 1: [ #include <stdio.h> ] In a C program, 
+all lines that start with # are processed by a preprocessor which is a program invoked by the compiler. 
+In a very basic term, the preprocessor takes a C program and produces another C program. 
+The produced program has no lines starting with #, all such lines are processed by the preprocessor. 
+In the above example, the preprocessor copies the preprocessed code of stdio.h to our file. The .h files are called header files in C. 
+These header files generally contain declarations of functions. 
+We need stdio.h for the function printf() used in the program. 
+
+
+
+Line 2 [ int main(void) ] There must be a starting point from where execution of compiled C program begins. 
+In C, the execution typically begins with the first line of main(). 
+The void written in brackets indicates that the main doesn’t take any parameter 
+(See this for more details). main() can be written to take parameters also. 
+We will be covering that in future posts. 
+The int was written before main indicates return type of main(). 
+The value returned by main indicates the status of program termination.
+
+
+Line 3 and 6: [ { and } ] In C language, a pair of curly brackets define scope and 
+are mainly used in functions and control statements like if, else, loops. 
+All functions must start and end with curly brackets. 
+
+
+Line 4 [ printf(“GeeksQuiz”); ] printf() is a standard library function to print something on standard output. 
+The semicolon at the end of printf indicates line termination. 
+In C, a semicolon is always used to indicate end of a statement. 
+
+
+Line 5 [ return 0; ] The return statement returns the value from main(). 
+The returned value may be used by an operating system to know the termination status of your program. 
+The value 0 typically means successful termination. 
+
+
+int keyword in C:
+
+n the C programming language the keyword ‘int’ is used in a type declaration to give a variable an integer type. 
+However, the fact that the type represents integers does not mean it can represent all integers. 
+The size of an int variable is fixed and determined by the C implementation you use. 
+The C Standard dictates that an int must have a range of at least -32767 to +32767. 
+The C implementation can, and very often does, have a much larger range than this. 
+The range of the int type on a particular C implementation can be obtained 
+via the INT_MAX and INT_MIN variables defined in the header <limits.h>:
+
+
+#include <limits.h>
+#include <stdio.h>
+
+int main()
+{
+	printf("minimum int value = %d\n"
+		"maximum int value = %d\n"
+		"size of int in bytes = %zu\n"
+		"size of int in bits = %zu",
+		INT_MIN, INT_MAX, sizeof(int),
+		sizeof(int) * CHAR_BIT);
+}
+
+
+Output
+minimum int value = -2147483648
+maximum int value = 2147483647
+size of int in bytes = 4
+size of int in bits = 32
+
+
+
+Difference between “int main()” and “int main(void)” in C/C++?:
+
+Consider the following two definitions of main().
+
+int main()
+{
+/* */
+return 0;
+}
+
+
+
+int main(void)
+{
+/* */
+return 0;
+}
+
+
+
+
+What is the difference?
+
+In C++, there is no difference, both are same.
+
+Both definitions work in C also, 
+but the second definition with void is considered technically better as it clearly specifies 
+that main can only be called without any parameter.
+In C, if a function signature doesn’t specify any argument, 
+it means that the function can be called with any number of parameters or without any parameters. 
+For example, try to compile and run following two C programs (remember to save your files as .c). 
+Note the difference between two signatures of fun().
+
+
+// Program 1 (Compiles and runs fine in C, but not in C++)
+void fun() { }
+int main(void)
+{
+	fun(10, "GfG", "GQ");
+	return 0;
+}
+
+
+The above program compiles and runs fine (See this), 
+but the following program fails in compilation
+
+
+// Program 2 (Fails in compilation in both C and C++)
+void fun(void) { }
+int main(void)
+{
+	fun(10, "GfG", "GQ");
+	return 0;
+}
+
+
+Error:
+prog.c: In function ‘main’:
+prog.c:5:2: error: too many arguments to function ‘fun’
+  fun(10, "GfG", "GQ");
+  ^
+prog.c:2:6: note: declared here
+ void fun(void) { }
+ 
+ 
+Unlike C, in C++, both of the above programs fails in compilation. In C++, both fun() and fun(void) are same.
+
+So the difference is, in C, int main() can be called with any number of arguments, 
+but int main(void) can only be called without any argument. 
+Although it doesn’t make any difference most of the times, 
+using “int main(void)” is a recommended practice in C.
+
+Exercise:
+Predict the output of following C programs.
+
+#include <stdio.h>
+int main()
+{
+	static int i = 5;
+	if (--i){
+		printf("%d ", i);
+		main(10);
+	}
+}
+
+Output
+
+4 3 2 1 
+
+
+
+#include <stdio.h>
+int main(void)
+{
+	static int i = 5;
+	if (--i){
+		printf("%d ", i);
+		main(10);
+	}
+}
+
+
+Output (Error)
+
+prog.c: In function ‘main’:
+prog.c:7:3: error: too many arguments to function ‘main’
+   main(10);
+   ^
+prog.c:2:5: note: declared here
+ int main(void)
+ 
+ 
+ 
+ 
+Compiling a C program:- Behind the Scenes
+
+C is a mid-level language and it needs a compiler to convert it into an executable code so that the program can be run on our machine. 
+
+How do we compile and run a C program?
+Below are the steps we use on an Ubuntu machine with gcc compiler.  
+
+
+We first create a C program using an editor and save the file as filename.c
+
+$ vi filename.c
+
+
+Then compile it using below command.
+
+ $ gcc -Wall filename.c –o filename
+ 
+ 
+The option -Wall enables all compiler’s warning messages. 
+This option is recommended to generate better code. 
+The option -o is used to specify the output file name. 
+If we do not use this option, then an output file with name a.out is generated.
+
+After compilation executable is generated and we run the generated executable using below command.
+
+
+ $ ./filename 
+ 
+ 
+What goes inside the compilation process?
+Compiler converts a C program into an executable. 
+There are four phases for a C program to become an executable: 
+
+Pre-processing
+Compilation
+Assembly
+Linking
+
+By executing below command, We get the all intermediate files in the current directory along with the executable.
+
+ $gcc -Wall -save-temps filename.c –o filename 
+ 
+Let us one by one see what these intermediate files contain. 
+
+Pre-processing
+
+This is the first phase through which source code is passed. 
+This phase include:  
+
+Removal of Comments
+Expansion of Macros
+Expansion of the included files.
+Conditional compilation
+The preprocessed output is stored in the filename.i. 
+Let’s see what’s inside filename.i: using $vi filename.i  
+In the above output, source file is filled with lots and lots of info, but at the end our code is preserved.
+
+Analysis: 
+
+printf contains now a + b rather than add(a, b) that’s because macros have expanded.
+Comments are stripped off.
+#include<stdio.h> is missing instead we see lots of code. 
+So header files has been expanded and included in our source file. 
+
+Compiling
+
+The next step is to compile filename.i and produce an; intermediate compiled output file filename.s. 
+This file is in assembly level instructions. 
+Let’s see through this file using $vi filename.s  
+
+Assembly
+In this phase the filename.s is taken as input and turned into filename.o by assembler. 
+This file contain machine level instructions. 
+At this phase, only existing code is converted into machine language, the function calls like printf() are not resolved. 
+Let’s view this file using $vi filename.o 
+
+
+Linking
+
+This is the final phase in which all the linking of function calls with their definitions are done. 
+Linker knows where all these functions are implemented. 
+Linker does some extra work also, it adds some extra code to our program which is required when the program starts and ends. 
+For example, there is a code which is required for setting up the environment like passing command line arguments. 
+This task can be easily verified by using $size filename.o and $size filename. 
+Through these commands, we know that how output file increases from an object file to an executable file. 
+This is because of the extra code that linker adds with our program. 
+
+
+
+
+ 
+
