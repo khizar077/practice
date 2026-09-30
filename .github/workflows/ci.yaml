@@ -1,13 +1,23 @@
-name: Hello World
+name: Sequential Hello World
 
 on:
   push:
-   # branches: [ "main" ]  # Runs every time you push to the main branch
-  workflow_dispatch:      # Allows you to run this workflow manually from GitHub
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
-  greet:
+  # Job 1: Runs first
+  first-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Hello World
-        run: echo "Hello, World!"
+      - name: Say Hello
+        run: echo "Hello World from the FIRST job!"
+
+  # Job 2: Waits for Job 1 to finish successfully
+  second-job:
+    runs-on: ubuntu-latest
+    needs: first-job # <-- This forces the sequence
+    steps:
+      - name: Say Goodbye
+        run: echo "Goodbye World from the SECOND job!"
+
