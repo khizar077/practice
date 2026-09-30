@@ -1,0 +1,13 @@
+name: Hello World
+
+on:
+  push:
+   # branches: [ "main" ]  # Runs every time you push to the main branch
+  workflow_dispatch:      # Allows you to run this workflow manually from GitHub
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello World
+        run: echo "Hello, World!"
